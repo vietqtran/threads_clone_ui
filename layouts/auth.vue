@@ -1,5 +1,7 @@
 <template>
-   <div class="flex max-h-[100vh] flex-col dark:bg-black">
+   <div
+      class="flex max-h-[100vh] flex-col text-black dark:bg-black dark:text-white"
+   >
       <Head>
          <title>Threads</title>
       </Head>

@@ -1,6 +1,19 @@
 <template>
-   <div>
-      layout
+   <div class="flex flex-col bg-white text-black dark:bg-black dark:text-white">
+      <Header />
+      <NavigationBar />
       <slot />
    </div>
 </template>
+
+<script>
+import Header from '~/components/common/Header'
+import NavigationBar from '~/components/common/NavigationBar'
+
+export default {
+   components: {
+      Header,
+      NavigationBar
+   }
+}
+</script>

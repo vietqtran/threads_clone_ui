@@ -5,3 +5,9 @@
 .d-login {
     @apply dark:bg-login-input-d dark:text-login-input-d
 }
+
+.fixed-center-x {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
