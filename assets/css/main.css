@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.d-login {
+    @apply dark:bg-login-input-d dark:text-login-input-d
+}
