@@ -120,7 +120,7 @@
                   <div class="pr-2 h-full cursor-pointer">
                      <img
                         draggable="false"
-                        class="h-full rounded-lg select-none object-cover"
+                        class="h-full max-h-[350px] rounded-lg select-none object-cover"
                         src="/images/user.jpg"
                         alt=""
                      />
@@ -128,7 +128,7 @@
                   <div class="pr-2 h-full cursor-pointer">
                      <img
                         draggable="false"
-                        class="h-full rounded-lg select-none object-cover"
+                        class="h-full max-h-[350px] rounded-lg select-none object-cover"
                         src="/images/user2.jpg"
                         alt=""
                      />
