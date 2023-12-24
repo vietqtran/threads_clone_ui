@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: auto !important;
+}
+
 .d-login {
     @apply dark:bg-login-input-d dark:text-login-input-d
 }
@@ -10,4 +14,16 @@
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.border-b {
+    @apply border-b-[1px] border-gray-300 dark:border-gray-700
+}
+
+.ab-center {
+    @apply top-[50%] absolute translate-x-[-50%] translate-y-[-50%] left-[50%]
+}
+
+.ab-center-x {
+    @apply top-[50%] absolute translate-y-[-50%]
 }

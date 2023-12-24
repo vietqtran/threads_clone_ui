@@ -1,8 +1,8 @@
 <template>
    <nav
-      class="fixed-center-x bottom-0 top-auto h-[68px] w-full bg-white bg-opacity-80 py-1 backdrop-blur-xl dark:bg-black dark:bg-opacity-80 dark:backdrop-blur-xl sm:bottom-auto sm:top-0 sm:h-[74px] sm:max-w-[480px] sm:bg-transparent dark:sm:bg-transparent"
+      class="fixed-center-x z-40 bottom-0 top-auto h-[68px] w-full bg-white bg-opacity-50 py-1 sm:backdrop-blur-0 backdrop-blur-xl dark:bg-black dark:bg-opacity-50 dark:backdrop-blur-xl dark:sm:backdrop-blur-0 sm:bottom-auto sm:top-0 sm:h-[74px] sm:max-w-[480px] sm:bg-transparent dark:sm:bg-transparent"
    >
-      <ul class="grid h-full w-full grid-cols-5 gap-4">
+      <ul class="grid h-full w-full grid-cols-5 gap-1">
          <li class="h-full w-full">
             <nuxt-link
                class="group relative grid h-full w-full place-items-center"
@@ -17,7 +17,7 @@
                      :class="{
                         'fill-black dark:fill-white dark:stroke-white stroke-black':
                            tab === 'home',
-                        'fill-white dark:fill-black': tab !== 'home'
+                        'fill-none': tab !== 'home'
                      }"
                      width="26"
                      height="25"

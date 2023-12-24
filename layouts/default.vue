@@ -1,5 +1,7 @@
 <template>
-   <div class="flex flex-col bg-white text-black dark:bg-black dark:text-white">
+   <div
+      class="flex flex-col bg-white text-gray-900 dark:bg-black dark:text-white"
+   >
       <Header />
       <NavigationBar />
       <slot />
