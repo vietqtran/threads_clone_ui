@@ -1,5 +1,6 @@
 <template>
    <NuxtLayout name="auth">
+      <NuxtLoadingIndicator />
       <div class="relative grid h-[100vh] max-w-[100vw] place-items-center">
          <div
             class="z-10 grid w-full max-w-[416px] place-items-center px-4 sm:mt-40"

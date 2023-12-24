@@ -1,6 +1,6 @@
 <template>
    <div
-      class="sticky z-30 left-0 right-0 top-0 flex w-full items-center bg-white bg-opacity-50 backdrop-blur-xl dark:bg-black dark:bg-opacity-50 dark:backdrop-blur-xl"
+      class="sticky z-30 left-0 right-0 top-0 flex w-full items-center bg-white dark:bg-black"
    >
       <div
          class="container mx-auto flex h-[60px] max-w-[1230px] items-center justify-center bg-transparent sm:h-[74px] sm:justify-between"

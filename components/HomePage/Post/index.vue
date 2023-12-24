@@ -68,7 +68,7 @@
                <!-- Images  -->
 
                <!-- With > 3 images -->
-               <!-- <div
+               <div
                   class="w-full cursor-grab active:cursor-grabbing max-h-[430px] my-2"
                >
                   <Flicking :options="{ moveType: 'freeScroll', bound: true }">
@@ -113,10 +113,10 @@
                         />
                      </div>
                   </Flicking>
-               </div> -->
+               </div>
 
                <!-- With > 2 images -->
-               <div class="w-full grid grid-cols-2 my-2">
+               <!-- <div class="w-full grid grid-cols-2 my-2">
                   <div class="pr-2 h-full cursor-pointer">
                      <img
                         draggable="false"
@@ -133,7 +133,7 @@
                         alt=""
                      />
                   </div>
-               </div>
+               </div> -->
 
                <!-- With 1 Image  -->
                <!-- <div class="my-2 cursor-pointer">
@@ -218,6 +218,6 @@ export default {
 </script>
 
 <style>
-@import url('node_modules/@egjs/vue3-flicking/dist/flicking.css');
-@import url('node_modules/@egjs/vue3-flicking/dist/flicking-inline.css');
+@import url('~/node_modules/@egjs/vue3-flicking/dist/flicking.css');
+@import url('~/node_modules/@egjs/vue3-flicking/dist/flicking-inline.css');
 </style>

@@ -1,9 +1,10 @@
 <template>
    <NuxtLayout>
+      <NuxtLoadingIndicator />
       <Head>
          <title>Threads</title>
       </Head>
-      <div class="max-w-[620px] container mx-auto sm:px-6 px-2">
+      <div class="container mx-auto max-w-[620px] px-3 sm:px-6">
          <CreatePost />
 
          <Post />
