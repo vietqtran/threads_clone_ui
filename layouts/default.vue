@@ -8,9 +8,9 @@
    </div>
 </template>
 
-<script>
-import Header from '~/components/common/Header'
-import NavigationBar from '~/components/common/NavigationBar'
+<script lang="ts">
+import Header from '~/components/common/Header/index.vue'
+import NavigationBar from '~/components/common/NavigationBar/index.vue'
 
 export default {
    components: {

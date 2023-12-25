@@ -20,7 +20,9 @@
    },
    "dependencies": {
       "@egjs/vue3-flicking": "^4.11.2",
+      "@nuxtjs/axios": "^5.13.6",
       "@pinia/nuxt": "^0.5.1",
+      "nuxt-property-decorator": "^2.9.1",
       "pinia": "^2.1.7"
    }
 }

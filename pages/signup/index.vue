@@ -65,11 +65,11 @@
    </NuxtLayout>
 </template>
 
-<script>
-import SwitchForm from '~/components/common/Auth/SwitchForm'
-import LoginInput from '~/components/LoginPage/LoginInput'
-import SubmitButton from '~/components/LoginPage/SubmitButton'
-import Or from '~/components/common/Auth/Or'
+<script lang="ts">
+import SwitchForm from '~/components/common/Auth/SwitchForm/index.vue'
+import LoginInput from '~/components/LoginPage/LoginInput/index.vue'
+import SubmitButton from '~/components/LoginPage/SubmitButton/index.vue'
+import Or from '~/components/common/Auth/Or/index.vue'
 
 export default {
    head: {
@@ -92,23 +92,23 @@ export default {
    },
 
    methods: {
-      updateEmail(value) {
+      updateEmail(value: string) {
          this.$data.email = value
       },
 
-      updatePassword(value) {
+      updatePassword(value: string) {
          this.$data.password = value
       },
 
-      updateName(value) {
+      updateName(value: string) {
          this.$data.name = value
       },
 
-      updateUsername(value) {
+      updateUsername(value: string) {
          this.$data.username = value
       },
 
-      login(event) {
+      login(event: Event) {
          event.preventDefault()
          console.log(this.$data.email, this.$data.password)
       }

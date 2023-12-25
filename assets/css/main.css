@@ -27,3 +27,24 @@ html {
 .ab-center-x {
     @apply top-[50%] absolute translate-y-[-50%]
 }
+
+.dropdown-shadow {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+
+@keyframes more-dropdown {
+    from {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translate(0%, 0%);
+        opacity: 1;
+    }
+}
+
+.more-dropdown {
+    transform-origin: top right;
+    animation: more-dropdown .1s linear;
+}

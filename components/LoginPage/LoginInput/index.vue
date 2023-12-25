@@ -11,7 +11,7 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
    props: {
       value: String,
@@ -19,8 +19,11 @@ export default {
       placeholder: String
    },
    methods: {
-      onInput(event) {
-         this.$emit('updateValue', event.target.value)
+      onInput(event: Event) {
+         const input = (event.target as HTMLInputElement) || null
+         if (input) {
+            this.$emit('updateValue', input.value)
+         }
       }
    }
 }

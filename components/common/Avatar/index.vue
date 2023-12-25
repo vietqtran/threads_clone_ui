@@ -11,7 +11,7 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
    props: {
       size: Number
@@ -20,7 +20,7 @@ export default {
       computedStyle() {
          return {
             width: this.size + 'px',
-            height: this.size + 'px' // Assuming you want a square aspect ratio
+            height: this.size + 'px'
          }
       }
    }

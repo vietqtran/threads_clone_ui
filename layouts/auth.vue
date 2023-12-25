@@ -10,8 +10,8 @@
    </div>
 </template>
 
-<script>
-import Footer from '~/components/common/Footer'
+<script lang="ts">
+import Footer from '~/components/common/Footer/index.vue'
 
 export default {
    components: {

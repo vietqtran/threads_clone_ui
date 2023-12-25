@@ -1,16 +1,16 @@
 <template>
-   <div class="py-3 border-b h-auto">
+   <div class="h-auto border-b py-3">
       <div class="flex h-full w-full">
-         <div class="min-w-[48px] flex flex-col max-w-[48px]">
+         <div class="flex min-w-[48px] max-w-[48px] flex-col">
             <!-- Avatar  -->
-            <div class="w-full flex justify-start pt-1">
+            <div class="flex w-full justify-start pt-1">
                <AvatarWithFollowButton :size="36" />
             </div>
 
             <!-- Line  -->
-            <div class="pt-[10px] pb-1 flex-1 pr-3 flex justify-center">
+            <div class="flex flex-1 justify-center pb-1 pr-3 pt-[10px]">
                <div
-                  class="min-h-[100px] h-full w-[2px] bg-gray-200 dark:bg-gray-700"
+                  class="h-full min-h-[100px] w-[2px] bg-gray-200 dark:bg-gray-700"
                ></div>
             </div>
          </div>
@@ -28,27 +28,7 @@
                   <div>
                      <span class="text-sm text-gray-500">35m</span>
                   </div>
-                  <div class="cursor-pointer relative group">
-                     <div
-                        class="absolute group-hover:w-[36px] w-0 h-0 opacity-0 group-hover:opacity-100 duration-100 ease-out group-hover:h-[36px] bg-gray-100 rounded-full ab-center dark:bg-gray-800"
-                     ></div>
-                     <svg
-                        aria-label="More"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        class="w-[20px] h-[20px] block relative fill-current text-black dark:text-white"
-                        style="
-                           --fill: currentColor;
-                           --height: 20px;
-                           --width: 20px;
-                        "
-                     >
-                        <title>More</title>
-                        <circle cx="12" cy="12" r="1.5"></circle>
-                        <circle cx="6" cy="12" r="1.5"></circle>
-                        <circle cx="18" cy="12" r="1.5"></circle>
-                     </svg>
-                  </div>
+                  <More />
                </div>
             </div>
             <div class="w-full">
@@ -69,45 +49,55 @@
 
                <!-- With > 3 images -->
                <div
-                  class="w-full cursor-grab active:cursor-grabbing max-h-[430px] my-2"
+                  class="my-2 max-h-[430px] w-full cursor-grab active:cursor-grabbing"
                >
                   <Flicking :options="{ moveType: 'freeScroll', bound: true }">
-                     <div class="pr-2 h-full">
+                     <div
+                        class="h-full pr-2 duration-100 ease-in active:scale-95"
+                     >
                         <img
                            draggable="false"
-                           class="max-h-[280px] rounded-lg select-none"
+                           class="max-h-[280px] select-none rounded-lg"
                            src="/images/user.jpg"
                            alt=""
                         />
                      </div>
-                     <div class="pr-2">
+                     <div
+                        class="h-full pr-2 duration-100 ease-in active:scale-95"
+                     >
                         <img
                            draggable="false"
-                           class="max-h-[280px] rounded-lg select-none"
+                           class="max-h-[280px] select-none rounded-lg"
                            src="/images/user2.jpg"
                            alt=""
                         />
                      </div>
-                     <div class="pr-2">
+                     <div
+                        class="h-full pr-2 duration-100 ease-in active:scale-95"
+                     >
                         <img
                            draggable="false"
-                           class="max-h-[280px] rounded-lg select-none"
+                           class="max-h-[280px] select-none rounded-lg"
                            src="/images/user.jpg"
                            alt=""
                         />
                      </div>
-                     <div class="pr-2">
+                     <div
+                        class="h-full pr-2 duration-100 ease-in active:scale-95"
+                     >
                         <img
                            draggable="false"
-                           class="max-h-[280px] rounded-lg select-none"
+                           class="max-h-[280px] select-none rounded-lg"
                            src="/images/user2.jpg"
                            alt=""
                         />
                      </div>
-                     <div class="pr-2">
+                     <div
+                        class="h-full pr-2 duration-100 ease-in active:scale-95"
+                     >
                         <img
                            draggable="false"
-                           class="max-h-[280px] rounded-lg select-none"
+                           class="max-h-[280px] select-none rounded-lg"
                            src="/images/user.jpg"
                            alt=""
                         />
@@ -116,19 +106,19 @@
                </div>
 
                <!-- With > 2 images -->
-               <!-- <div class="w-full grid grid-cols-2 my-2">
-                  <div class="pr-2 h-full cursor-pointer">
+               <!-- <div class="my-2 grid w-full grid-cols-2">
+                  <div class="h-full cursor-pointer pr-2">
                      <img
                         draggable="false"
-                        class="h-full max-h-[350px] rounded-lg select-none object-cover"
+                        class="h-full max-h-[350px] select-none rounded-lg object-cover"
                         src="/images/user.jpg"
                         alt=""
                      />
                   </div>
-                  <div class="pr-2 h-full cursor-pointer">
+                  <div class="h-full cursor-pointer pr-2">
                      <img
                         draggable="false"
-                        class="h-full max-h-[350px] rounded-lg select-none object-cover"
+                        class="h-full max-h-[350px] select-none rounded-lg object-cover"
                         src="/images/user2.jpg"
                         alt=""
                      />
@@ -139,14 +129,14 @@
                <!-- <div class="my-2 cursor-pointer">
                   <img
                      draggable="false"
-                     class="rounded-lg max-h-[480px] select-none object-cover"
+                     class="max-h-[480px] select-none rounded-lg object-cover"
                      src="/images/user2.jpg"
                      alt=""
                   />
                </div> -->
 
                <!-- Action  -->
-               <div class="flex items-center py-2 gap-4">
+               <div class="flex items-center gap-4 py-2">
                   <LikeIcon />
                   <ReplyIcon />
                   <RepostIcon />
@@ -159,29 +149,29 @@
       <!-- Footer  -->
       <div class="flex items-center">
          <!-- With 2 users  -->
-         <!-- <div class="w-[48px] h-[35px] pr-2 text-15 relative">
+         <!-- <div class="relative h-[35px] w-[48px] pr-2 text-15">
             <div
-               class="ab-center-x border-2 border-white dark:border-black left-0 rounded-full"
+               class="ab-center-x left-0 rounded-full border-2 border-white dark:border-black"
             >
                <Avatar :size="16" />
             </div>
             <div
-               class="ab-center-x border-2 border-white dark:border-black right-[15px] rounded-full"
+               class="ab-center-x right-[15px] rounded-full border-2 border-white dark:border-black"
             >
                <Avatar :size="16" />
             </div>
          </div> -->
 
          <!-- With 3 users  -->
-         <div class="w-[48px] h-[35px] pr-2 text-15 relative">
-            <div class="absolute w-fit right-3 top-0 rounded-full">
+         <div class="relative h-[35px] w-[48px] pr-2 text-15">
+            <div class="absolute right-3 top-0 w-fit rounded-full">
                <Avatar :size="20" />
             </div>
-            <div class="absolute w-fit left-0 top-3 right-[15px] rounded-full">
+            <div class="absolute left-0 right-[15px] top-3 w-fit rounded-full">
                <Avatar :size="16" />
             </div>
             <div
-               class="absolute w-fit right-[15px] bottom-0 left-4 rounded-full"
+               class="absolute bottom-0 left-4 right-[15px] w-fit rounded-full"
             >
                <Avatar :size="12" />
             </div>
@@ -203,6 +193,7 @@ import LikeIcon from '~/components/common/ActionIcon/LikeIcon.vue'
 import ReplyIcon from '~/components/common/ActionIcon/ReplyIcon.vue'
 import RepostIcon from '~/components/common/ActionIcon/RepostIcon.vue'
 import ShareIcon from '~/components/common/ActionIcon/ShareIcon.vue'
+import More from './More.vue'
 
 export default {
    components: {
@@ -212,7 +203,8 @@ export default {
       LikeIcon,
       ReplyIcon,
       RepostIcon,
-      ShareIcon
+      ShareIcon,
+      More
    }
 }
 </script>

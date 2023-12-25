@@ -18,9 +18,9 @@
    </NuxtLayout>
 </template>
 
-<script>
-import CreatePost from '~/components/HomePage/CreatePost'
-import Post from '~/components/HomePage/Post'
+<script lang="ts">
+import CreatePost from '~/components/HomePage/CreatePost/index.vue'
+import Post from '~/components/HomePage/Post/index.vue'
 
 export default {
    components: {
