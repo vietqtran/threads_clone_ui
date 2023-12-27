@@ -56,9 +56,6 @@ import SubmitButton from '~/components/LoginPage/SubmitButton/index.vue'
 import Or from '~/components/common/Auth/Or/index.vue'
 
 export default {
-   head: {
-      title: 'ROAST'
-   },
    components: {
       LoginInput,
       SubmitButton,

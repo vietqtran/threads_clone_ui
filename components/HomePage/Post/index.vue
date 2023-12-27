@@ -53,6 +53,7 @@
                >
                   <Flicking :options="{ moveType: 'freeScroll', bound: true }">
                      <div
+                        @click="openModal"
                         class="h-full pr-2 duration-100 ease-in active:scale-95"
                      >
                         <img
@@ -194,6 +195,7 @@ import ReplyIcon from '~/components/common/ActionIcon/ReplyIcon.vue'
 import RepostIcon from '~/components/common/ActionIcon/RepostIcon.vue'
 import ShareIcon from '~/components/common/ActionIcon/ShareIcon.vue'
 import More from './More.vue'
+import { postImagesModalStore } from '~/store/modal.postImage'
 
 export default {
    components: {
@@ -205,6 +207,24 @@ export default {
       RepostIcon,
       ShareIcon,
       More
+   },
+   setup() {
+      const postImagesModal = postImagesModalStore()
+      const isOpenedPostImagesModal = postImagesModal.isOpened
+
+      const openModal = () => {
+         postImagesModal.open([
+            '/images/user.jpg',
+            '/images/user2.jpg',
+            '/images/user.jpg',
+            '/images/user2.jpg'
+         ])
+      }
+
+      return {
+         isOpenedPostImagesModal,
+         openModal
+      }
    }
 }
 </script>
