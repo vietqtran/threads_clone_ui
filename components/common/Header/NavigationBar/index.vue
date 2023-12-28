@@ -69,8 +69,9 @@
             </nuxt-link>
          </li>
          <li class="h-full py-1 w-full">
-            <nuxt-link
-               class="group relative grid h-full w-full place-items-center"
+            <div
+               @click="openCreateThread"
+               class="group cursor-pointer relative grid h-full w-full place-items-center"
                to="/"
             >
                <span
@@ -94,7 +95,7 @@
                      />
                   </svg>
                </Icon>
-            </nuxt-link>
+            </div>
          </li>
          <li class="h-full py-1 w-full">
             <nuxt-link
@@ -171,10 +172,22 @@
 
 <script lang="ts">
 import Icon from './Icon.vue'
+import { createThreadModalStore } from '~/store/modal.createThread'
 
 export default {
    components: {
       Icon
+   },
+   setup() {
+      const createThreadModal = createThreadModalStore()
+
+      const openCreateThread = () => {
+         createThreadModal.open()
+      }
+
+      return {
+         openCreateThread
+      }
    },
    data() {
       return {

@@ -7,13 +7,13 @@
       <div class="container mx-auto max-w-[620px] px-3 sm:px-6">
          <CreatePost />
 
-         <Post />
-         <Post />
-         <Post />
-         <Post />
-         <Post />
-         <Post />
-         <Post />
+         <Post postId="1" />
+         <Post postId="2" />
+         <Post postId="3" />
+         <Post postId="4" />
+         <Post postId="5" />
+         <Post postId="6" />
+         <Post postId="7" />
       </div>
    </NuxtLayout>
 </template>

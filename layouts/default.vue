@@ -6,20 +6,24 @@
       <NavigationBar />
       <slot />
 
+      <!-- Modals -->
       <PostImageModal />
+      <CreateThreadModal />
    </div>
 </template>
 
 <script lang="ts">
 import Header from '~/components/common/Header/index.vue'
-import NavigationBar from '~/components/common/NavigationBar/index.vue'
+import NavigationBar from '~/components/common/Header/NavigationBar/index.vue'
 import PostImageModal from '~/components/common/Modal/PostImageModal.vue'
+import CreateThreadModal from '~/components/common/Modal/CreateThreadModal.vue'
 
 export default {
    components: {
       Header,
       NavigationBar,
-      PostImageModal
+      PostImageModal,
+      CreateThreadModal
    }
 }
 </script>

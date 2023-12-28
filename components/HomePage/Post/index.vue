@@ -53,7 +53,8 @@
                >
                   <Flicking :options="{ moveType: 'freeScroll', bound: true }">
                      <div
-                        @click="openModal"
+                        key="1"
+                        @click="openModal(0)"
                         class="h-full pr-2 duration-100 ease-in active:scale-95"
                      >
                         <img
@@ -64,6 +65,8 @@
                         />
                      </div>
                      <div
+                        key="2"
+                        @click="openModal(1)"
                         class="h-full pr-2 duration-100 ease-in active:scale-95"
                      >
                         <img
@@ -74,6 +77,8 @@
                         />
                      </div>
                      <div
+                        key="3"
+                        @click="openModal(2)"
                         class="h-full pr-2 duration-100 ease-in active:scale-95"
                      >
                         <img
@@ -84,6 +89,8 @@
                         />
                      </div>
                      <div
+                        key="4"
+                        @click="openModal(3)"
                         class="h-full pr-2 duration-100 ease-in active:scale-95"
                      >
                         <img
@@ -94,6 +101,8 @@
                         />
                      </div>
                      <div
+                        key="5"
+                        @click="openModal(4)"
                         class="h-full pr-2 duration-100 ease-in active:scale-95"
                      >
                         <img
@@ -186,9 +195,9 @@
    </div>
 </template>
 
-<script>
+<script lang="ts">
 import AvatarWithFollowButton from '~/components/common/Avatar/AvatarWithFollowButton.vue'
-import Avatar from '~/components/common/Avatar'
+import Avatar from '~/components/common/Avatar/index.vue'
 import Flicking from '@egjs/vue3-flicking'
 import LikeIcon from '~/components/common/ActionIcon/LikeIcon.vue'
 import ReplyIcon from '~/components/common/ActionIcon/ReplyIcon.vue'
@@ -208,17 +217,25 @@ export default {
       ShareIcon,
       More
    },
-   setup() {
+   props: {
+      postId: String
+   },
+   setup(props) {
       const postImagesModal = postImagesModalStore()
       const isOpenedPostImagesModal = postImagesModal.isOpened
 
-      const openModal = () => {
-         postImagesModal.open([
-            '/images/user.jpg',
-            '/images/user2.jpg',
-            '/images/user.jpg',
-            '/images/user2.jpg'
-         ])
+      const openModal = (index: number) => {
+         postImagesModal.open(
+            [
+               '/images/user.jpg',
+               '/images/user2.jpg',
+               '/images/user.jpg',
+               '/images/user2.jpg',
+               '/images/user.jpg'
+            ],
+            props.postId ?? '',
+            index
+         )
       }
 
       return {

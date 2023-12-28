@@ -26,7 +26,11 @@
          </div>
 
          <button
-            class="custom-swiper-button-next absolute right-4 top-[50%] z-10 hidden translate-y-[-50%] place-items-center rounded-full bg-white bg-opacity-[.15] stroke-2 p-7 duration-100 ease-linear hover:scale-110 active:scale-90 md:grid"
+            class="absolute right-4 top-[50%] z-10 hidden translate-y-[-50%] place-items-center rounded-full bg-white bg-opacity-[.15] stroke-2 p-7 duration-100 ease-linear hover:scale-110 active:scale-90 md:grid"
+            :class="[
+               { 'opacity-30 cursor-not-allowed': isEnd },
+               `custom-swiper-button-next-${postId}`
+            ]"
          >
             <span class="relative">
                <svg
@@ -42,7 +46,11 @@
             </span>
          </button>
          <button
-            class="custom-swiper-button-prev absolute left-4 top-[50%] z-10 hidden translate-y-[-50%] place-items-center rounded-full bg-white bg-opacity-[.15] stroke-2 p-7 duration-100 ease-linear hover:scale-110 active:scale-90 md:grid"
+            class="absolute left-4 top-[50%] z-10 hidden translate-y-[-50%] place-items-center rounded-full bg-white bg-opacity-[.15] stroke-2 p-7 duration-100 ease-linear hover:scale-110 active:scale-90 md:grid"
+            :class="[
+               { 'opacity-30 cursor-not-allowed': isStart },
+               `custom-swiper-button-prev-${postId}`
+            ]"
          >
             <span class="relative">
                <svg
@@ -60,14 +68,28 @@
 
          <div @click.stop class="container z-0 mx-auto h-full w-full">
             <Swiper
+               :id="postId"
                class="z-0 h-full w-full"
                :slides-per-view="1"
                :space-between="0"
                :navigation="{
-                  prevEl: '.custom-swiper-button-prev',
-                  nextEl: '.custom-swiper-button-next'
+                  prevEl: `.custom-swiper-button-prev-${postId}`,
+                  nextEl: `.custom-swiper-button-next-${postId}`
                }"
                :modules="modules"
+               @swiper="
+                  (swiper) => {
+                     swiper.slideTo(currentIndex)
+                     isEnd = swiper.isEnd
+                     isStart = swiper.isBeginning
+                  }
+               "
+               @slideChange="
+                  (swiper) => {
+                     isEnd = swiper.isEnd
+                     isStart = swiper.isBeginning
+                  }
+               "
             >
                <SwiperSlide v-for="image in images" :lazy="true">
                   <div class="h-full w-full content-center md:px-[32px]">
@@ -102,6 +124,8 @@ export default {
       const postImagesModal = postImagesModalStore()
       const isOpened = computed(() => postImagesModal.isOpened)
       const images = computed(() => postImagesModal.images)
+      const postId = computed(() => postImagesModal.postId)
+      const currentIndex = computed(() => postImagesModal.currentIndex)
 
       const closeModal = () => {
          postImagesModal.close()
@@ -109,9 +133,17 @@ export default {
 
       return {
          isOpened,
-         closeModal,
          images,
+         postId,
+         closeModal,
+         currentIndex,
          modules: [Navigation]
+      }
+   },
+   data() {
+      return {
+         isEnd: false,
+         isStart: true
       }
    }
 }

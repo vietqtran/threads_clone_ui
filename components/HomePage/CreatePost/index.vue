@@ -3,7 +3,7 @@
       <div>
          <Avatar :size="36" />
       </div>
-      <div class="mx-2 flex-1 cursor-text pl-1 text-gray-400">
+      <div @click="open" class="mx-2 flex-1 cursor-text pl-1 text-gray-400">
          <span>Start a thread...</span>
       </div>
       <div>
@@ -18,10 +18,24 @@
 
 <script lang="ts">
 import Avatar from '~/components/common/Avatar/index.vue'
+import { createThreadModalStore } from '~/store/modal.createThread'
 
 export default {
    components: {
       Avatar
+   },
+   setup() {
+      const createThreadModal = createThreadModalStore()
+      const isOpened = computed(() => createThreadModal.isOpened)
+
+      const open = () => {
+         createThreadModal.open()
+      }
+
+      return {
+         isOpened,
+         open
+      }
    }
 }
 </script>

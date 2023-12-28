@@ -1,20 +1,18 @@
 import { defineStore } from 'pinia'
 
-export const avatarModalStore = defineStore('avatarModal', {
+export const createThreadModalStore = defineStore('createThreadModal', {
    state: () => ({
-      isOpened: false,
-      image: ''
+      isOpened: false
    }),
+
    actions: {
-      open(image: string) {
-         this.image = image
+      open() {
          this.isOpened = true
          document.body.style.overflow = 'hidden'
       },
 
       close() {
          this.isOpened = false
-         this.image = ''
          document.body.style.overflow = 'auto'
       }
    }
