@@ -22,7 +22,7 @@
 
          <div
             @click.stop
-            class="flex flex-col overflow-hidden sm:rounded-2xl bg-white sm:h-fit h-full"
+            class="flex flex-col dark:border-[1px] dark:border-white dark:border-opacity-10 overflow-hidden sm:rounded-2xl bg-white dark:bg-[#181818] sm:h-fit h-full"
          >
             <div class="p-6 pb-4 overflow-y-auto sm:max-h-[601px] h-full">
                <div class="h-auto">
@@ -37,7 +37,7 @@
                            class="flex flex-1 justify-center pb-1 pr-3 pt-[10px]"
                         >
                            <div
-                              class="h-auto min-h-[32px] w-[2px] bg-gray-200 dark:bg-gray-700"
+                              class="h-auto min-h-[32px] w-[2px] bg-gray-200 dark:bg-opacity-40"
                            ></div>
                         </div>
                      </div>
@@ -53,16 +53,37 @@
                               :content="content"
                            />
                         </div>
+
+                        <div class="mt-1 -ml-2 flex items-center">
+                           <Image />
+                           <Poll />
+                        </div>
+                     </div>
+                  </div>
+                  <div
+                     class="w-full pt-[10px] flex items-center"
+                     :class="{
+                        'opacity-100 cursor-pointer': content !== '',
+                        'opacity-50 cursor-auto': content === ''
+                     }"
+                  >
+                     <div class="pl-[10px] w-[48px]">
+                        <Avatar :size="16" />
+                     </div>
+                     <div class="opacity-50">
+                        <span>Add to thread</span>
                      </div>
                   </div>
                </div>
             </div>
 
-            <div class="p-6 bg-white flex items-center justify-between">
-               <div class="text-gray-400 cursor-pointer">Anyone can reply</div>
+            <div
+               class="p-6 bg-white dark:bg-[#181818] flex items-center justify-between"
+            >
+               <div class="cursor-pointer opacity-50">Anyone can reply</div>
                <div>
                   <button
-                     class="px-4 font-semibold py-[6px] rounded-full bg-black text-white"
+                     class="px-4 font-semibold py-[6px] rounded-full dark:bg-white bg-black dark:text-black text-white"
                      :class="{
                         'opacity-100 cursor-pointer': content !== '',
                         'opacity-25 cursor-not-allowed': content === ''
@@ -81,9 +102,11 @@
 import { createThreadModalStore } from '~/store/modal.createThread'
 import Avatar from '../Avatar/index.vue'
 import Textarea from './Textarea.vue'
+import Image from './Icons/Image.vue'
+import Poll from './Icons/Poll.vue'
 
 export default {
-   components: { Avatar, Textarea },
+   components: { Avatar, Textarea, Image, Poll },
    setup() {
       const createThreadModal = createThreadModalStore()
       const isOpened = computed(() => createThreadModal.isOpened)
