@@ -21,30 +21,30 @@
       <div
          v-show="show"
          @click="(event) => event.preventDefault()"
-         class="dropdown-shadow more-dropdown absolute right-[-6px] top-[30px] z-40 w-[190px] overflow-hidden rounded-2xl border-[.1px] border-gray-100 bg-white duration-300 dark:border-gray-800 dark:bg-black"
+         class="dropdown-shadow more-dropdown absolute right-[-6px] top-[30px] z-40 w-[190px] overflow-hidden rounded-2xl border-[.1px] border-gray-100 bg-white duration-300 dark:border-gray-800 dark:bg-[#181818]"
       >
          <ul class="w-full cursor-pointer">
             <li
                @click="console.log('Mute')"
-               class="border-b px-4 py-[11px] font-semibold"
+               class="border-b px-4 py-[11px] font-medium"
             >
                Mute
             </li>
             <li
                @click="console.log('Block')"
-               class="border-b px-4 py-[11px] font-semibold text-red-500"
+               class="border-b px-4 py-[11px] font-medium text-red-500"
             >
                Block
             </li>
             <li
                @click="console.log('Hide')"
-               class="border-b px-4 py-[11px] font-semibold"
+               class="border-b px-4 py-[11px] font-medium"
             >
                Hide
             </li>
             <li
                @click="console.log('Report')"
-               class="px-4 py-[11px] font-semibold text-red-500"
+               class="px-4 py-[11px] font-medium text-red-500"
             >
                Report
             </li>

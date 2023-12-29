@@ -4,7 +4,7 @@
       :style="computedStyle"
    >
       <div
-         class="group-hover:scale-110 duration-150 ease-linear absolute border-[1.5px] dark:border-black border-white right-[-2px] bottom-0 rounded-full p-[2px] bg-black dark:bg-white"
+         class="group-hover:scale-110 duration-150 ease-linear absolute border-[1.5px] dark:border-black border-white right-[-2px] bottom-0 rounded-full p-[2px] bg-[#181818] dark:bg-white"
       >
          <svg
             aria-label="Follow"

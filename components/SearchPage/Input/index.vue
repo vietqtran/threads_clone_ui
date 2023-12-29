@@ -1,7 +1,7 @@
 <template>
    <div
       @click="isFocus = true"
-      class="sm:py-3 p-2 absolute top-0 left-0 right-0 w-full duration-100 ease-linear rounded-2xl bg-[#fafafa] dark:bg-black flex items-center sm:px-4 border-[1px] border-gray-300 dark:border-opacity-30"
+      class="sm:py-3 p-2 absolute top-0 left-0 right-0 w-full duration-100 ease-linear rounded-2xl bg-[#fafafa] dark:bg-[#181818] flex items-center sm:px-4 border-[1px] border-gray-300 dark:border-opacity-30"
       :class="{ 'shadow-dark dark:shadow-light': isFocus }"
    >
       <Search />

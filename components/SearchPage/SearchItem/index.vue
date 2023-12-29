@@ -10,7 +10,7 @@
             <div class="flex items-center justify-between pb-2">
                <div class="flex flex-col leading-5 flex-1">
                   <p class="max-w-[150px] truncate font-medium">vietqtran</p>
-                  <P class="max-w-[150px] opacity-60 truncate"> vietqtran </P>
+                  <p class="max-w-[150px] opacity-60 truncate">vietqtran</p>
                </div>
                <div>
                   <button

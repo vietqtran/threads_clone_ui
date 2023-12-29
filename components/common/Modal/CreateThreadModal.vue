@@ -2,18 +2,18 @@
    <div
       v-if="isOpened"
       @click="close"
-      class="w-full h-full grid place-items-center fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-70 z-[9999]"
+      class="fixed bottom-0 left-0 right-0 top-0 z-[9999] grid h-full w-full place-items-center bg-black bg-opacity-70"
    >
       <div
-         class="sm:max-w-[618px] sm:pb-10 sm:pt-2 h-full w-full flex flex-col justify-center"
+         class="flex h-full w-full flex-col justify-center sm:max-w-[618px] sm:pb-10 sm:pt-2"
       >
          <div
             @click.stop
-            class="w-full sm:p-5 p-3 relative text-center sm:bg-transparent sm:border-none sm:border-b bg-white sm:text-white text-black"
+            class="relative w-full bg-white p-3 text-center text-black sm:border-b sm:border-none sm:bg-transparent sm:p-5 sm:text-white dark:bg-[#181818] dark:text-white dark:sm:bg-transparent"
          >
             <div
                @click="close"
-               class="sm:hidden cursor-pointer h-full w-fit px-3 absolute left-0"
+               class="absolute left-0 h-full w-fit cursor-pointer px-3 sm:hidden"
             >
                Cancel
             </div>
@@ -22,9 +22,9 @@
 
          <div
             @click.stop
-            class="flex flex-col dark:border-[1px] dark:border-white dark:border-opacity-10 overflow-hidden sm:rounded-2xl bg-white dark:bg-[#181818] sm:h-fit h-full"
+            class="flex h-full flex-col overflow-hidden bg-white sm:h-fit sm:rounded-2xl dark:border-[1px] dark:border-white dark:border-opacity-10 dark:bg-[#181818]"
          >
-            <div class="p-6 pb-4 overflow-y-auto sm:max-h-[601px] h-full">
+            <div class="h-full overflow-y-auto p-6 pb-4 sm:max-h-[601px]">
                <div class="h-auto">
                   <div class="flex h-full w-full">
                      <div class="flex min-w-[48px] max-w-[48px] flex-col">
@@ -43,31 +43,31 @@
                      </div>
                      <div class="w-full">
                         <!-- Username  -->
-                        <div class="font-medium cursor-text">
+                        <div class="cursor-text font-medium">
                            <span class="leading-0">vietqtran</span>
                         </div>
                         <!-- Content Input  -->
-                        <div class="w-full min-h-0">
+                        <div class="min-h-0 w-full">
                            <Textarea
                               @setContent="setContent"
                               :content="content"
                            />
                         </div>
 
-                        <div class="mt-1 -ml-2 flex items-center">
+                        <div class="-ml-2 mt-1 flex items-center">
                            <Image />
                            <Poll />
                         </div>
                      </div>
                   </div>
                   <div
-                     class="w-full pt-[10px] flex items-center"
+                     class="flex w-full items-center pt-[10px]"
                      :class="{
                         'opacity-100 cursor-pointer': content !== '',
                         'opacity-50 cursor-auto': content === ''
                      }"
                   >
-                     <div class="pl-[10px] w-[48px]">
+                     <div class="w-[48px] pl-[10px]">
                         <Avatar :size="16" />
                      </div>
                      <div class="opacity-50">
@@ -78,12 +78,12 @@
             </div>
 
             <div
-               class="p-6 bg-white dark:bg-[#181818] flex items-center justify-between"
+               class="flex items-center justify-between bg-white p-6 dark:bg-[#181818]"
             >
                <div class="cursor-pointer opacity-50">Anyone can reply</div>
                <div>
                   <button
-                     class="px-4 font-semibold py-[6px] rounded-full dark:bg-white bg-black dark:text-black text-white"
+                     class="rounded-full bg-[#181818] px-4 py-[6px] font-semibold text-white dark:bg-white dark:text-black"
                      :class="{
                         'opacity-100 cursor-pointer': content !== '',
                         'opacity-25 cursor-not-allowed': content === ''

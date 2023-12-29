@@ -1,6 +1,6 @@
 <template>
    <nav
-      class="fixed-center-x z-40 bottom-0 top-auto h-[68px] w-full bg-white dark:bg-black sm:bottom-auto sm:top-0 sm:h-[74px] sm:max-w-[480px]"
+      class="fixed-center-x z-40 bottom-0 top-auto h-[68px] w-full bg-white dark:bg-[#181818] sm:bottom-auto sm:top-0 sm:h-[74px] sm:max-w-[480px]"
    >
       <ul class="grid h-full w-full grid-cols-5 gap-1">
          <li class="h-full py-1 w-full">
@@ -72,7 +72,6 @@
             <div
                @click="openCreateThread"
                class="group cursor-pointer relative grid h-full w-full place-items-center"
-               to="/"
             >
                <span
                   class="absolute z-[-1] block h-[80%] w-[80%] rounded-lg duration-100 ease-linear group-hover:h-full group-hover:w-full group-hover:bg-gray-400 group-hover:bg-opacity-20 dark:group-hover:bg-gray-500 dark:group-hover:bg-opacity-20"
@@ -100,7 +99,7 @@
          <li class="h-full py-1 w-full">
             <nuxt-link
                class="group relative grid h-full w-full place-items-center"
-               to="/"
+               to="/activity"
             >
                <span
                   class="absolute z-[-1] block h-[80%] w-[80%] rounded-lg duration-100 ease-linear group-hover:h-full group-hover:w-full group-hover:bg-gray-400 group-hover:bg-opacity-20 dark:group-hover:bg-gray-500 dark:group-hover:bg-opacity-20"
@@ -110,7 +109,7 @@
                   <svg
                      :class="{
                         'fill-black dark:fill-white dark:stroke-white stroke-black':
-                           tab === 'notification'
+                           tab === '/activity'
                      }"
                      stroke="inherit"
                      width="23"

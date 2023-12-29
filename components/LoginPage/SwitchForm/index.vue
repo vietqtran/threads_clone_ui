@@ -4,7 +4,7 @@
       class="flex w-full items-center justify-between rounded-xl border-[1px] border-gray-300 py-5 pl-5 pr-3"
    >
       <div class="flex items-center">
-         <div class="aspect-square w-[45px] rounded-lg bg-black">
+         <div class="aspect-square w-[45px] rounded-lg bg-[#181818]">
             <img class="h-full w-full" src="/icons/Threads.svg" alt="" />
          </div>
          <div class="grid flex-1 place-items-center pl-5">

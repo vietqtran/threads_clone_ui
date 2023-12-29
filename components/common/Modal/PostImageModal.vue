@@ -1,7 +1,7 @@
 <template>
    <div
       v-if="isOpened"
-      class="fixed left-0 top-0 z-[9999] h-[100vh] w-full overflow-hidden bg-black"
+      class="fixed left-0 top-0 z-[9999] h-[100vh] w-full overflow-hidden bg-[#181818]"
    >
       <div class="relative flex h-full w-full items-start">
          <div class="absolute left-0 top-0 z-10 p-5">

@@ -25,36 +25,36 @@
       <div
          v-show="show"
          @click="(event) => event.preventDefault()"
-         class="dropdown-shadow more-dropdown absolute right-[16px] top-[60px] z-40 w-[190px] overflow-hidden rounded-2xl border-[.1px] border-gray-100 bg-white duration-300 dark:border-gray-800 dark:bg-black"
+         class="dropdown-shadow more-dropdown absolute right-[16px] top-[60px] z-40 w-[190px] overflow-hidden rounded-2xl border-[.1px] border-gray-100 bg-white duration-300 dark:border-gray-800 dark:bg-[#181818]"
       >
          <ul class="w-full cursor-pointer">
             <li
                @click="console.log('Switch appearance')"
-               class="border-b px-4 py-[11px] font-semibold"
+               class="border-b px-4 py-[11px] font-medium"
             >
                Switch appearance
             </li>
             <li
                @click="console.log('Settings')"
-               class="border-b px-4 py-[11px] font-semibold"
+               class="border-b px-4 py-[11px] font-medium"
             >
                Settings
             </li>
             <li
                @click="console.log('About')"
-               class="border-b px-4 py-[11px] font-semibold"
+               class="border-b px-4 py-[11px] font-medium"
             >
                About
             </li>
             <li
                @click="console.log('Report a problem')"
-               class="px-4 py-[11px] border-b font-semibold"
+               class="px-4 py-[11px] border-b font-medium"
             >
                Report a problem
             </li>
             <li
                @click="console.log('Log out')"
-               class="px-4 py-[11px] font-semibold"
+               class="px-4 py-[11px] font-medium"
             >
                Log out
             </li>

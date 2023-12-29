@@ -1,6 +1,6 @@
 <template>
    <div
-      class="flex flex-col relative bg-white text-gray-900 dark:bg-black dark:text-white"
+      class="relative flex min-h-[100vh] flex-col bg-white text-black dark:bg-[#181818] dark:text-white"
    >
       <Header />
       <NavigationBar />
