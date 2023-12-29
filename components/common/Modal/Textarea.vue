@@ -1,6 +1,6 @@
 <template>
    <textarea
-      class="w-full outline-none resize-none block dark:bg-inherit"
+      class="w-full font-normal placeholder:font-light outline-none resize-none block dark:bg-inherit"
       placeholder="Start a thread..."
       ref="autoTextArea"
       autofocus

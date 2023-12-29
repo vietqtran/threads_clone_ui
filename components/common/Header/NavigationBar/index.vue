@@ -16,8 +16,8 @@
                   <svg
                      :class="{
                         'fill-black dark:fill-white dark:stroke-white stroke-black':
-                           tab === 'home',
-                        'fill-none': tab !== 'home'
+                           tab === '/',
+                        'fill-none': tab !== '/'
                      }"
                      width="26"
                      height="25"
@@ -39,7 +39,7 @@
          <li class="h-full py-1 w-full">
             <nuxt-link
                class="group relative grid h-full w-full place-items-center"
-               to="/"
+               to="/search"
             >
                <span
                   class="absolute z-[-1] block h-[80%] w-[80%] rounded-lg duration-100 ease-linear group-hover:h-full group-hover:w-full group-hover:bg-gray-400 group-hover:bg-opacity-20 dark:group-hover:bg-gray-500 dark:group-hover:bg-opacity-20"
@@ -48,8 +48,8 @@
                <Icon>
                   <svg
                      :class="{
-                        'stroke-black dark:stroke-white': tab === 'search',
-                        'stroke-inherit': tab !== 'search'
+                        'stroke-black dark:stroke-white': tab === '/search',
+                        'stroke-inherit': tab !== '/search'
                      }"
                      width="23"
                      height="23"
@@ -191,8 +191,12 @@ export default {
    },
    data() {
       return {
-         tab: 'home'
+         tab: '/'
       }
+   },
+   mounted() {
+      this.$data.tab = this.$route.path
+      console.log(this.$route.path)
    }
 }
 </script>

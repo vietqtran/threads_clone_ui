@@ -66,10 +66,10 @@
 </template>
 
 <script lang="ts">
-import SwitchForm from '~/components/common/Auth/SwitchForm/index.vue'
+import SwitchForm from '~/components/LoginPage/SwitchForm/index.vue'
 import LoginInput from '~/components/LoginPage/LoginInput/index.vue'
 import SubmitButton from '~/components/LoginPage/SubmitButton/index.vue'
-import Or from '~/components/common/Auth/Or/index.vue'
+import Or from '~/components/LoginPage/Or/index.vue'
 
 export default {
    head: {

@@ -4,7 +4,10 @@
    >
       <Header />
       <NavigationBar />
-      <slot />
+
+      <keep-alive>
+         <slot />
+      </keep-alive>
 
       <!-- Modals -->
       <PostImageModal />
