@@ -1,9 +1,29 @@
 <template>
-   <div>Quotes</div>
+   <div>
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+      <QuotesItem />
+   </div>
 </template>
 
 <script>
-export default {}
-</script>
+import QuotesItem from './Item/QuotesItem.vue'
 
-<style scope></style>
+export default {
+   components: {
+      QuotesItem
+   }
+}
+</script>

@@ -1,9 +1,29 @@
 <template>
-   <div>Reposts</div>
+   <div>
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+      <RepostsItem />
+   </div>
 </template>
 
 <script>
-export default {}
-</script>
+import RepostsItem from './Item/RepostsItem.vue'
 
-<style scope></style>
+export default {
+   components: {
+      RepostsItem
+   }
+}
+</script>

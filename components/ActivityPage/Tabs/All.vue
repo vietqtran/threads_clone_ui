@@ -1,9 +1,25 @@
 <template>
-   <div>All</div>
+   <div>
+      <AllItem />
+      <AllItem />
+      <AllItem />
+      <AllItem />
+      <AllItem />
+      <AllItem />
+      <AllItem />
+      <AllItem />
+      <AllItem />
+      <AllItem />
+      <AllItem />
+   </div>
 </template>
 
 <script>
-export default {}
-</script>
+import AllItem from './Item/AllItem.vue'
 
-<style scope></style>
+export default {
+   components: {
+      AllItem
+   }
+}
+</script>

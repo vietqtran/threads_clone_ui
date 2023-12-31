@@ -1,9 +1,31 @@
 <template>
-   <div>Replies</div>
+   <div>
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+      <RepliesItem />
+   </div>
 </template>
 
 <script>
-export default {}
-</script>
+import RepliesItem from './Item/RepliesItem.vue'
 
-<style scope></style>
+export default {
+   components: {
+      RepliesItem
+   }
+}
+</script>

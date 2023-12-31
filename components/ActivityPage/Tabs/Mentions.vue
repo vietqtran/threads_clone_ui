@@ -1,9 +1,27 @@
 <template>
-   <div>Mentions</div>
+   <div>
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+      <MentionsItem />
+   </div>
 </template>
 
 <script>
-export default {}
-</script>
+import MentionsItem from './Item/MentionsItem.vue'
 
-<style scope></style>
+export default {
+   components: {
+      MentionsItem
+   }
+}
+</script>

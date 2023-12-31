@@ -130,7 +130,7 @@
          <li class="h-full py-1 w-full">
             <nuxt-link
                class="group relative grid h-full w-full place-items-center"
-               to="/"
+               to="/user/@vietqtran"
             >
                <span
                   class="absolute z-[-1] block h-[80%] w-[80%] rounded-lg duration-100 ease-linear group-hover:h-full group-hover:w-full group-hover:bg-gray-400 group-hover:bg-opacity-20 dark:group-hover:bg-gray-500 dark:group-hover:bg-opacity-20"
@@ -140,7 +140,7 @@
                   <svg
                      :class="{
                         'fill-black dark:fill-white dark:stroke-white stroke-black':
-                           tab === 'user'
+                           tab.startsWith('/user/@')
                      }"
                      stroke="inherit"
                      width="22"

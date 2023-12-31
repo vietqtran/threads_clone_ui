@@ -1,9 +1,30 @@
 <template>
-   <div>Follows</div>
+   <div>
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+      <FollowsItem />
+   </div>
 </template>
 
 <script>
-export default {}
-</script>
+import FollowsItem from './Item/FollowsItem.vue'
 
-<style scope></style>
+export default {
+   components: {
+      FollowsItem
+   }
+}
+</script>
