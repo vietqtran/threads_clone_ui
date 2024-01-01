@@ -1,7 +1,7 @@
 <template>
    <div class="flex items-start pt-4">
       <div class="min-w-[48px] relative">
-         <Avatar :size="36" />
+         <CommonAvatar :size="36" />
 
          <div
             class="bg-purple-700 top-[20px] border-2 border-white right-[8px] rounded-full absolute w-[20px] h-[20px]"
@@ -60,12 +60,4 @@
    </div>
 </template>
 
-<script>
-import Avatar from '~/components/common/Avatar/index.vue'
-
-export default {
-   components: {
-      Avatar
-   }
-}
-</script>
+<script setup></script>

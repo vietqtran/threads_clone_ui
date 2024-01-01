@@ -19,12 +19,6 @@
    </div>
 </template>
 
-<script>
+<script setup>
 import FollowsItem from './Item/FollowsItem.vue'
-
-export default {
-   components: {
-      FollowsItem
-   }
-}
 </script>

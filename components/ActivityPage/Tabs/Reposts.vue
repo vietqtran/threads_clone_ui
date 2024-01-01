@@ -18,12 +18,6 @@
    </div>
 </template>
 
-<script>
+<script setup>
 import RepostsItem from './Item/RepostsItem.vue'
-
-export default {
-   components: {
-      RepostsItem
-   }
-}
 </script>

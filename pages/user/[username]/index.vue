@@ -13,7 +13,7 @@
                   </div>
                </div>
                <div>
-                  <Avatar :size="84" />
+                  <CommonAvatar :size="84" />
                </div>
             </div>
             <div>Bio</div>
@@ -39,30 +39,11 @@
    </NuxtLayout>
 </template>
 
-<script lang="ts">
-import Avatar from '~/components/common/Avatar/index.vue'
+<script lang="ts" setup>
+const title = ref('')
 
-export default {
-   // beforeRouteEnter(to, from, next) {
-   //    const username = to.params.username
-   //    if (username === '123') {
-   //       next()
-   //    } else {
-   //       next('/error')
-   //    }
-   // }
-   components: {
-      Avatar
-   },
-   setup() {},
-   data() {
-      return {
-         title: ''
-      }
-   },
-   created() {
-      const title = `Trần Quốc Việt (${this.$route.params.username}) on Threads`
-      this.title = title
-   }
-}
+const route = useRoute()
+onBeforeMount(() => {
+   title.value = `Trần Quốc Việt (${route.params.username}) on Threads`
+})
 </script>

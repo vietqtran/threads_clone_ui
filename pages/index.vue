@@ -6,28 +6,18 @@
       </Head>
       <keep-alive>
          <div class="container mx-auto max-w-[620px] px-3 sm:px-6">
-            <CreatePost />
+            <HomePageCreatePost />
 
-            <Post postId="1" />
-            <Post postId="2" />
-            <Post postId="3" />
-            <Post postId="4" />
-            <Post postId="5" />
-            <Post postId="6" />
-            <Post postId="7" />
+            <HomePagePost postId="1" />
+            <HomePagePost postId="2" />
+            <HomePagePost postId="3" />
+            <HomePagePost postId="4" />
+            <HomePagePost postId="5" />
+            <HomePagePost postId="6" />
+            <HomePagePost postId="7" />
          </div>
       </keep-alive>
    </NuxtLayout>
 </template>
 
-<script lang="ts">
-import CreatePost from '~/components/HomePage/CreatePost/index.vue'
-import Post from '~/components/HomePage/Post/index.vue'
-
-export default {
-   components: {
-      CreatePost,
-      Post
-   }
-}
-</script>
+<script lang="ts" setup></script>

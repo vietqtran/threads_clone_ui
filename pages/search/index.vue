@@ -8,10 +8,4 @@
    </NuxtLayout>
 </template>
 
-<script lang="ts">
-import SearchPage from '~/components/SearchPage/index.vue'
-
-export default {
-   components: { SearchPage }
-}
-</script>
+<script lang="ts" setup></script>

@@ -2,42 +2,44 @@
    <textarea
       class="w-full font-normal placeholder:font-light outline-none resize-none block dark:bg-inherit"
       placeholder="Start a thread..."
-      ref="autoTextArea"
+      ref="autoTextAreaRef"
       autofocus
       :rows="rows"
-      :value="content"
+      :value="props.content"
       @input="changeInput"
       @keydown.enter="resizeTextarea"
    ></textarea>
 </template>
 
-<script lang="ts">
-export default {
-   props: {
-      content: String
-   },
-   data() {
-      return {
-         rows: 1
-      }
-   },
-   methods: {
-      resizeTextarea() {
-         const textarea: HTMLInputElement = this.$refs
-            .autoTextArea as HTMLInputElement
-         textarea.style.height = 'auto'
-         textarea.style.height = textarea.scrollHeight + 'px'
-      },
-      changeInput(event: Event) {
-         const input = (event.target as HTMLInputElement) || null
-         if (input) {
-            this.$emit('setContent', input.value)
-         }
-         this.resizeTextarea()
-      }
-   },
-   mounted() {
-      this.resizeTextarea()
+<script lang="ts" setup>
+const props = defineProps({
+   content: {
+      type: String,
+      require: true
+   }
+})
+
+const autoTextAreaRef = ref<HTMLTextAreaElement | null>(null)
+const resizeTextarea = () => {
+   const textarea = autoTextAreaRef.value
+   if (textarea) {
+      textarea.style.height = 'auto'
+      textarea.style.height = textarea.scrollHeight + 'px'
    }
 }
+
+const emits = defineEmits()
+const changeInput = (event: Event) => {
+   const input = event.target as HTMLInputElement
+   if (input) {
+      emits('setContent', input.value)
+   }
+   resizeTextarea()
+}
+
+const rows = ref(1)
+
+onMounted(() => {
+   resizeTextarea()
+})
 </script>

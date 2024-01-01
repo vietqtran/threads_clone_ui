@@ -16,12 +16,6 @@
    </div>
 </template>
 
-<script>
+<script setup>
 import MentionsItem from './Item/MentionsItem.vue'
-
-export default {
-   components: {
-      MentionsItem
-   }
-}
 </script>

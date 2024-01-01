@@ -30,7 +30,7 @@
                      <div class="flex min-w-[48px] max-w-[48px] flex-col">
                         <!-- Avatar  -->
                         <div class="flex w-full justify-start pt-1">
-                           <Avatar :size="36" />
+                           <CommonAvatar :size="36" />
                         </div>
 
                         <div
@@ -68,7 +68,7 @@
                      }"
                   >
                      <div class="w-[48px] pl-[10px]">
-                        <Avatar :size="16" />
+                        <CommonAvatar :size="16" />
                      </div>
                      <div class="opacity-50">
                         <span>Add to thread</span>
@@ -98,37 +98,22 @@
    </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { createThreadModalStore } from '~/store/modal.createThread'
-import Avatar from '../Avatar/index.vue'
 import Textarea from './Textarea.vue'
 import Image from './Icons/Image.vue'
 import Poll from './Icons/Poll.vue'
 
-export default {
-   components: { Avatar, Textarea, Image, Poll },
-   setup() {
-      const createThreadModal = createThreadModalStore()
-      const isOpened = computed(() => createThreadModal.isOpened)
+const createThreadModal = createThreadModalStore()
+const isOpened = computed(() => createThreadModal.isOpened)
 
-      const close = () => {
-         createThreadModal.close()
-      }
+const close = () => {
+   createThreadModal.close()
+}
 
-      return {
-         isOpened,
-         close
-      }
-   },
-   data() {
-      return {
-         content: ''
-      }
-   },
-   methods: {
-      setContent(value: string) {
-         this.$data.content = value
-      }
-   }
+const content = ref('')
+
+const setContent = (value: string) => {
+   content.value = value
 }
 </script>

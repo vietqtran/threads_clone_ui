@@ -2,29 +2,36 @@
    <div class="my-[2px] w-full rounded-lg py-1">
       <input
          autocomplete="true"
-         :value="value"
+         :value="props.value"
          @input="onInput"
          class="d-login w-full rounded-lg bg-login-input-l p-4 text-15 outline-none outline-offset-0 focus:outline focus:outline-[1px] focus:outline-gray-300 dark:bg-login-input-d dark:focus:outline-gray-600"
-         :type="type"
-         :placeholder="placeholder"
+         :type="props.type"
+         :placeholder="props.placeholder"
       />
    </div>
 </template>
 
-<script lang="ts">
-export default {
-   props: {
-      value: String,
+<script lang="ts" setup>
+const props = defineProps({
+   value: {
       type: String,
-      placeholder: String
+      required: true
    },
-   methods: {
-      onInput(event: Event) {
-         const input = (event.target as HTMLInputElement) || null
-         if (input) {
-            this.$emit('updateValue', input.value)
-         }
-      }
+   type: {
+      type: String,
+      required: true
+   },
+   placeholder: {
+      type: String,
+      required: true
+   }
+})
+
+const emits = defineEmits()
+const onInput = (event: Event) => {
+   const input = (event.target as HTMLInputElement) || null
+   if (input) {
+      emits('updateValue', input.value)
    }
 }
 </script>

@@ -14,12 +14,6 @@
    </div>
 </template>
 
-<script>
+<script setup>
 import AllItem from './Item/AllItem.vue'
-
-export default {
-   components: {
-      AllItem
-   }
-}
 </script>

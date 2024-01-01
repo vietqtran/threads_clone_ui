@@ -20,12 +20,6 @@
    </div>
 </template>
 
-<script>
+<script setup>
 import RepliesItem from './Item/RepliesItem.vue'
-
-export default {
-   components: {
-      RepliesItem
-   }
-}
 </script>

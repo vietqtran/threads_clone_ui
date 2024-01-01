@@ -169,33 +169,19 @@
    </nav>
 </template>
 
-<script lang="ts">
-import Icon from './Icon.vue'
+<script lang="ts" setup>
 import { createThreadModalStore } from '~/store/modal.createThread'
+import Icon from './Icon.vue'
 
-export default {
-   components: {
-      Icon
-   },
-   setup() {
-      const createThreadModal = createThreadModalStore()
-
-      const openCreateThread = () => {
-         createThreadModal.open()
-      }
-
-      return {
-         openCreateThread
-      }
-   },
-   data() {
-      return {
-         tab: '/'
-      }
-   },
-   mounted() {
-      this.$data.tab = this.$route.path
-      console.log(this.$route.path)
-   }
+const createThreadModal = createThreadModalStore()
+const openCreateThread = () => {
+   createThreadModal.open()
 }
+
+const route = useRoute()
+const tab = ref('/')
+
+onMounted(() => {
+   tab.value = route.path
+})
 </script>

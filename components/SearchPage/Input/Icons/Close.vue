@@ -1,7 +1,7 @@
 <template>
    <div
       class="p-2 opacity-20 cursor-pointer"
-      :class="{ hidden: value === '', block: value !== '' }"
+      :class="{ hidden: props.value === '', block: props.value !== '' }"
    >
       <svg
          aria-label="Clear"
@@ -18,10 +18,11 @@
    </div>
 </template>
 
-<script lang="ts">
-export default {
-   props: {
-      value: String
+<script lang="ts" setup>
+const props = defineProps({
+   value: {
+      type: String,
+      required: true
    }
-}
+})
 </script>

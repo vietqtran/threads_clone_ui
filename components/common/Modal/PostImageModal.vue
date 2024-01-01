@@ -76,7 +76,7 @@
                   prevEl: `.custom-swiper-button-prev-${postId}`,
                   nextEl: `.custom-swiper-button-next-${postId}`
                }"
-               :modules="modules"
+               :modules="[Navigation]"
                @swiper="
                   (swiper) => {
                      swiper.slideTo(currentIndex)
@@ -107,44 +107,23 @@
    </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { postImagesModalStore } from '~/store/modal.postImage'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-export default {
-   components: {
-      Swiper,
-      SwiperSlide
-   },
-   setup() {
-      // Store
-      const postImagesModal = postImagesModalStore()
-      const isOpened = computed(() => postImagesModal.isOpened)
-      const images = computed(() => postImagesModal.images)
-      const postId = computed(() => postImagesModal.postId)
-      const currentIndex = computed(() => postImagesModal.currentIndex)
+const postImagesModal = postImagesModalStore()
+const isOpened = computed(() => postImagesModal.isOpened)
+const images = computed(() => postImagesModal.images)
+const postId = computed(() => postImagesModal.postId)
+const currentIndex = computed(() => postImagesModal.currentIndex)
 
-      const closeModal = () => {
-         postImagesModal.close()
-      }
-
-      return {
-         isOpened,
-         images,
-         postId,
-         closeModal,
-         currentIndex,
-         modules: [Navigation]
-      }
-   },
-   data() {
-      return {
-         isEnd: false,
-         isStart: true
-      }
-   }
+const closeModal = () => {
+   postImagesModal.close()
 }
+
+const isEnd = ref(false)
+const isStart = ref(true)
 </script>

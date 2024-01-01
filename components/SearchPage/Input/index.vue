@@ -7,56 +7,54 @@
       <Search />
       <div class="w-full flex-1 pb-[2px] pt-[1px]">
          <input
-            ref="input"
+            ref="inputRef"
             @blur="isFocus = false"
             @input="onInput"
-            :value="value"
+            :value="props.value"
             type="text"
             placeholder="Search"
             class="outline-none placeholder:font-light font-normal bg-transparent w-full sm:h-[34px]"
          />
       </div>
-      <Close @click="clearInput" :value="value" />
+      <Close @click="clearInput" :value="props.value" />
    </div>
 </template>
 
-<script lang="ts">
-import Search from './Icons/Search.vue'
+<script lang="ts" setup>
 import Close from './Icons/Close.vue'
+import Search from './Icons/Search.vue'
 
-export default {
-   components: {
-      Search,
-      Close
-   },
-   props: {
-      value: String
-   },
-   data() {
-      return {
-         isFocus: false
-      }
-   },
-   methods: {
-      onInput(event: Event) {
-         const input = (event.target as HTMLInputElement) || null
-         if (input) {
-            this.$emit('setValue', input.value)
-         }
-      },
-      clearInput() {
-         this.$emit('setValue', '')
-      }
-   },
-   watch: {
-      isFocus() {
-         if (this.isFocus) {
-            const inputElement = this.$refs.input as HTMLInputElement
-            inputElement.focus()
-         }
-      }
+const props = defineProps({
+   value: {
+      type: String,
+      required: true,
+      default: ''
+   }
+})
+
+const isFocus = ref(false)
+
+const emits = defineEmits()
+
+const onInput = (event: Event) => {
+   const input = (event.target as HTMLInputElement) || null
+   if (input) {
+      emits('setValue', input.value)
    }
 }
+const clearInput = () => {
+   emits('setValue', '')
+}
+
+const inputRef = ref<HTMLElement | null>(null)
+watch(isFocus, (newValue) => {
+   if (newValue) {
+      const inputElement = inputRef.value
+      if (inputElement) {
+         inputElement.focus()
+      }
+   }
+})
 </script>
 
 <style scoped>

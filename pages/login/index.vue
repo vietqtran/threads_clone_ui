@@ -1,6 +1,6 @@
 <template>
    <NuxtLayout name="auth">
-      <template>
+      <div>
          <NuxtLoadingIndicator />
          <div class="relative grid h-[100vh] max-w-[100vw] place-items-center">
             <div
@@ -20,19 +20,19 @@
                   @submit.prevent="login"
                   class="w-full max-w-[368px] text-black"
                >
-                  <LoginInput
+                  <LoginPageLoginInput
                      :value="email"
                      @updateValue="updateEmail"
                      type="email"
                      placeholder="Username, phone or email"
                   />
-                  <LoginInput
+                  <LoginPageLoginInput
                      :value="password"
                      @updateValue="updatePassword"
                      type="password"
                      placeholder="Password"
                   />
-                  <SubmitButton
+                  <LoginPageSubmitButton
                      title="Log in"
                      :clickable="email !== '' && password !== ''"
                   />
@@ -41,50 +41,30 @@
                   <nuxt-link to="/">Forgot password?</nuxt-link>
                </div>
                <Or />
-               <SwitchForm to="/signup" title="Sign Up" />
+               <LoginPageSwitchForm to="/signup" title="Sign Up" />
             </div>
             <div
                class="absolute top-0 z-0 hidden h-1/2 w-full bg-login bg-contain bg-top bg-no-repeat sm:block"
             ></div>
          </div>
-      </template>
+      </div>
    </NuxtLayout>
 </template>
 
-<script lang="ts">
-import SwitchForm from '~/components/LoginPage/SwitchForm/index.vue'
-import LoginInput from '~/components/LoginPage/LoginInput/index.vue'
-import SubmitButton from '~/components/LoginPage/SubmitButton/index.vue'
-import Or from '~/components/LoginPage/Or/index.vue'
+<script lang="ts" setup>
+const email = ref('')
+const password = ref('')
 
-export default {
-   components: {
-      LoginInput,
-      SubmitButton,
-      Or,
-      SwitchForm
-   },
+const updateEmail = (value: string) => {
+   email.value = value
+}
 
-   data() {
-      return {
-         email: '',
-         password: ''
-      }
-   },
+const updatePassword = (value: string) => {
+   password.value = value
+}
 
-   methods: {
-      updateEmail(value: string) {
-         this.$data.email = value
-      },
-
-      updatePassword(value: string) {
-         this.$data.password = value
-      },
-
-      login(event: Event) {
-         event.preventDefault()
-         console.log(this.$data.email, this.$data.password)
-      }
-   }
+const login = (event: Event) => {
+   event.preventDefault()
+   console.log(email.value, password.value)
 }
 </script>

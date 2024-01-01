@@ -2,7 +2,7 @@
    <nuxt-link to="/">
       <div class="pt-4 text-15 flex items-start">
          <div class="pt-1 pr-3">
-            <Avatar :size="36" />
+            <CommonAvatar :size="36" />
          </div>
          <div
             class="flex-1 pb-3 border-b-[1px] border-b-black dark:border-b-white dark:border-opacity-25 border-opacity-20"
@@ -27,12 +27,4 @@
    </nuxt-link>
 </template>
 
-<script lang="ts">
-import Avatar from '~/components/common/Avatar/index.vue'
-
-export default {
-   components: {
-      Avatar
-   }
-}
-</script>
+<script lang="ts" setup></script>

@@ -1,117 +1,98 @@
 <template>
    <NuxtLayout name="auth">
-      <NuxtLoadingIndicator />
-      <div class="relative grid h-[100vh] max-w-[100vw] place-items-center">
-         <div
-            class="z-10 grid w-full max-w-[416px] place-items-center px-4 sm:mt-40"
-         >
-            <div class="my-5 aspect-square w-[60px] sm:hidden">
-               <img
-                  class="h-full w-full"
-                  src="/images/ThreadsBlack.svg"
-                  alt="Logo"
-               />
-            </div>
-            <div class="py-3 text-center text-black dark:text-white">
-               <h1 class="font-bold">
-                  Sign up to see photos from your friends.
-               </h1>
-            </div>
-            <form
-               @submit.prevent="login"
-               class="w-full max-w-[368px] text-black"
+      <div>
+         <NuxtLoadingIndicator />
+         <div class="relative grid h-[100vh] max-w-[100vw] place-items-center">
+            <div
+               class="z-10 grid w-full max-w-[416px] place-items-center px-4 sm:mt-40"
             >
-               <LoginInput
-                  :value="email"
-                  @updateValue="updateEmail"
-                  type="email"
-                  placeholder="Email"
-               />
-               <LoginInput
-                  :value="username"
-                  @updateValue="updateUsername"
-                  type="text"
-                  placeholder="Username"
-               />
-               <LoginInput
-                  :value="name"
-                  @updateValue="updateName"
-                  type="text"
-                  placeholder="Name"
-               />
-               <LoginInput
-                  :value="password"
-                  @updateValue="updatePassword"
-                  type="password"
-                  placeholder="Password"
-               />
-               <SubmitButton
-                  title="Sign up"
-                  :clickable="
-                     email !== '' &&
-                     password !== '' &&
-                     name !== '' &&
-                     username !== ''
-                  "
-               />
-            </form>
-            <Or />
-            <SwitchForm to="/login" title="Log In" />
+               <div class="my-5 aspect-square w-[60px] sm:hidden">
+                  <img
+                     class="h-full w-full"
+                     src="/images/ThreadsBlack.svg"
+                     alt="Logo"
+                  />
+               </div>
+               <div class="py-3 text-center text-black dark:text-white">
+                  <h1 class="font-bold">
+                     Sign up to see photos from your friends.
+                  </h1>
+               </div>
+               <form
+                  @submit.prevent="login"
+                  class="w-full max-w-[368px] text-black"
+               >
+                  <LoginPageLoginInput
+                     :value="email"
+                     @updateValue="updateEmail"
+                     type="email"
+                     placeholder="Email"
+                  />
+                  <LoginPageLoginInput
+                     :value="username"
+                     @updateValue="updateUsername"
+                     type="text"
+                     placeholder="Username"
+                  />
+                  <LoginPageLoginInput
+                     :value="name"
+                     @updateValue="updateName"
+                     type="text"
+                     placeholder="Name"
+                  />
+                  <LoginPageLoginInput
+                     :value="password"
+                     @updateValue="updatePassword"
+                     type="password"
+                     placeholder="Password"
+                  />
+                  <LoginPageSubmitButton
+                     title="Sign up"
+                     :clickable="
+                        email !== '' &&
+                        password !== '' &&
+                        name !== '' &&
+                        username !== ''
+                     "
+                  />
+               </form>
+               <Or />
+               <LoginPageSwitchForm to="/login" title="Log In" />
+            </div>
+            <div
+               class="absolute top-0 z-0 hidden h-1/2 w-full bg-login bg-contain bg-top bg-no-repeat sm:block"
+            ></div>
          </div>
-         <div
-            class="absolute top-0 z-0 hidden h-1/2 w-full bg-login bg-contain bg-top bg-no-repeat sm:block"
-         ></div>
       </div>
    </NuxtLayout>
 </template>
 
-<script lang="ts">
-import SwitchForm from '~/components/LoginPage/SwitchForm/index.vue'
-import LoginInput from '~/components/LoginPage/LoginInput/index.vue'
-import SubmitButton from '~/components/LoginPage/SubmitButton/index.vue'
-import Or from '~/components/LoginPage/Or/index.vue'
+<script lang="ts" setup>
+import { LoginPageLoginInput } from '~/.nuxt/components'
 
-export default {
-   head: {
-      title: 'ROAST'
-   },
-   components: {
-      LoginInput,
-      SubmitButton,
-      Or,
-      SwitchForm
-   },
+const email = ref('')
+const name = ref('')
+const username = ref('')
+const password = ref('')
 
-   data() {
-      return {
-         email: '',
-         name: '',
-         username: '',
-         password: ''
-      }
-   },
+const updateEmail = (value: string) => {
+   email.value = value
+}
 
-   methods: {
-      updateEmail(value: string) {
-         this.$data.email = value
-      },
+const updatePassword = (value: string) => {
+   password.value = value
+}
 
-      updatePassword(value: string) {
-         this.$data.password = value
-      },
+const updateName = (value: string) => {
+   name.value = value
+}
 
-      updateName(value: string) {
-         this.$data.name = value
-      },
+const updateUsername = (value: string) => {
+   username.value = value
+}
 
-      updateUsername(value: string) {
-         this.$data.username = value
-      },
-
-      login(event: Event) {
-         event.preventDefault()
-         console.log(this.$data.email, this.$data.password)
-      }
-   }
+const login = (event: Event) => {
+   event.preventDefault()
+   console.log(email.value, password.value)
 }
 </script>

@@ -11,18 +11,18 @@
    </div>
 </template>
 
-<script lang="ts">
-export default {
-   props: {
-      size: Number
-   },
-   computed: {
-      computedStyle() {
-         return {
-            width: this.size + 'px',
-            height: this.size + 'px'
-         }
-      }
+<script lang="ts" setup>
+const props = defineProps({
+   size: {
+      type: Number,
+      required: true
    }
-}
+})
+
+const computedStyle = computed(() => {
+   return {
+      width: props.size + 'px',
+      height: props.size + 'px'
+   }
+})
 </script>

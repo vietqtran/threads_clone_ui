@@ -2,8 +2,8 @@
    <div
       class="relative flex min-h-[100vh] flex-col bg-white text-black dark:bg-[#181818] dark:text-white"
    >
-      <Header />
-      <NavigationBar />
+      <CommonHeader />
+      <CommonHeaderNavigationBar />
 
       <keep-alive>
          <slot />
@@ -15,18 +15,7 @@
    </div>
 </template>
 
-<script lang="ts">
-import Header from '~/components/common/Header/index.vue'
-import NavigationBar from '~/components/common/Header/NavigationBar/index.vue'
-import PostImageModal from '~/components/common/Modal/PostImageModal.vue'
+<script lang="ts" setup>
 import CreateThreadModal from '~/components/common/Modal/CreateThreadModal.vue'
-
-export default {
-   components: {
-      Header,
-      NavigationBar,
-      PostImageModal,
-      CreateThreadModal
-   }
-}
+import PostImageModal from '~/components/common/Modal/PostImageModal.vue'
 </script>

@@ -6,16 +6,8 @@
          <title>Threads</title>
       </Head>
       <slot class="flex-1" />
-      <Footer />
+      <CommonFooter />
    </div>
 </template>
 
-<script lang="ts">
-import Footer from '~/components/common/Footer/index.vue'
-
-export default {
-   components: {
-      Footer
-   }
-}
-</script>
+<script lang="ts" setup></script>

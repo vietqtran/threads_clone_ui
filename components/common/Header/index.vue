@@ -11,14 +11,7 @@
    </div>
 </template>
 
-<script lang="ts">
-import More from './More.vue'
+<script lang="ts" setup>
 import Logo from './Logo.vue'
-
-export default {
-   components: {
-      More,
-      Logo
-   }
-}
+import More from './More.vue'
 </script>

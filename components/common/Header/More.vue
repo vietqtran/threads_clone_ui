@@ -63,33 +63,25 @@
    </div>
 </template>
 
-<script lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+<script lang="ts" setup>
+const element = ref<HTMLElement | null>(null)
+const show = ref(false)
 
-export default {
-   setup() {
-      const element = ref<HTMLElement | null>(null)
-      const show = ref(false)
+const handleClickOutside = () => {
+   show.value = false
+}
 
-      const handleClickOutside = () => {
-         show.value = false
-      }
-
-      const isClickOutside = (event: MouseEvent) => {
-         if (element.value && !element.value.contains(event.target as Node)) {
-            handleClickOutside()
-         }
-      }
-
-      onMounted(() => {
-         window.addEventListener('click', isClickOutside)
-      })
-
-      onUnmounted(() => {
-         window.removeEventListener('click', isClickOutside)
-      })
-
-      return { element, show, isClickOutside }
+const isClickOutside = (event: MouseEvent) => {
+   if (element.value && !element.value.contains(event.target as Node)) {
+      handleClickOutside()
    }
 }
+
+onMounted(() => {
+   window.addEventListener('click', isClickOutside)
+})
+
+onUnmounted(() => {
+   window.removeEventListener('click', isClickOutside)
+})
 </script>

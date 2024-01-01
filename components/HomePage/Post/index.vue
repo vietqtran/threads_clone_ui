@@ -4,7 +4,7 @@
          <div class="flex min-w-[48px] max-w-[48px] flex-col">
             <!-- Avatar  -->
             <div class="flex w-full justify-start pt-1">
-               <AvatarWithFollowButton :size="36" />
+               <CommonAvatarWithFollowButton :size="36" />
             </div>
 
             <!-- Line  -->
@@ -175,15 +175,15 @@
          <!-- With 3 users  -->
          <div class="relative h-[35px] w-[48px] pr-2 text-15">
             <div class="absolute right-3 top-0 w-fit rounded-full">
-               <Avatar :size="20" />
+               <CommonAvatar :size="20" />
             </div>
             <div class="absolute left-0 right-[15px] top-3 w-fit rounded-full">
-               <Avatar :size="16" />
+               <CommonAvatar :size="16" />
             </div>
             <div
                class="absolute bottom-0 left-4 right-[15px] w-fit rounded-full"
             >
-               <Avatar :size="12" />
+               <CommonAvatar :size="12" />
             </div>
          </div>
          <div class="text-gray-400">
@@ -195,54 +195,36 @@
    </div>
 </template>
 
-<script lang="ts">
-import AvatarWithFollowButton from '~/components/common/Avatar/AvatarWithFollowButton.vue'
-import Avatar from '~/components/common/Avatar/index.vue'
+<script lang="ts" setup>
 import Flicking from '@egjs/vue3-flicking'
+import { postImagesModalStore } from '~/store/modal.postImage'
+import More from './More.vue'
 import LikeIcon from './ActionIcon/LikeIcon.vue'
 import ReplyIcon from './ActionIcon/ReplyIcon.vue'
 import RepostIcon from './ActionIcon/RepostIcon.vue'
 import ShareIcon from './ActionIcon/ShareIcon.vue'
-import More from './More.vue'
-import { postImagesModalStore } from '~/store/modal.postImage'
 
-export default {
-   components: {
-      AvatarWithFollowButton,
-      Avatar,
-      Flicking,
-      LikeIcon,
-      ReplyIcon,
-      RepostIcon,
-      ShareIcon,
-      More
-   },
-   props: {
-      postId: String
-   },
-   setup(props) {
-      const postImagesModal = postImagesModalStore()
-      const isOpenedPostImagesModal = postImagesModal.isOpened
-
-      const openModal = (index: number) => {
-         postImagesModal.open(
-            [
-               '/images/user.jpg',
-               '/images/user2.jpg',
-               '/images/user.jpg',
-               '/images/user2.jpg',
-               '/images/user.jpg'
-            ],
-            props.postId ?? '',
-            index
-         )
-      }
-
-      return {
-         isOpenedPostImagesModal,
-         openModal
-      }
+const props = defineProps({
+   postId: {
+      type: String,
+      required: true
    }
+})
+
+const postImagesModal = postImagesModalStore()
+
+const openModal = (index: number) => {
+   postImagesModal.open(
+      [
+         '/images/user.jpg',
+         '/images/user2.jpg',
+         '/images/user.jpg',
+         '/images/user2.jpg',
+         '/images/user.jpg'
+      ],
+      props.postId ?? '',
+      index
+   )
 }
 </script>
 

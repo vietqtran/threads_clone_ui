@@ -18,12 +18,6 @@
    </div>
 </template>
 
-<script>
+<script setup>
 import QuotesItem from './Item/QuotesItem.vue'
-
-export default {
-   components: {
-      QuotesItem
-   }
-}
 </script>
