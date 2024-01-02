@@ -1,21 +1,29 @@
-import { defineNuxtPlugin } from '#app'
-import { useRoute } from 'vue-router'
-import { watch } from 'vue'
+import { defineNuxtPlugin } from 'nuxt/app'
 
 export default defineNuxtPlugin((nuxtApp) => {
    if (process.client) {
-      const route = useRoute()
+      const theme = ref(localStorage.getItem('THREADS_CLONE_THEME') || '')
+
+      watch(theme, (newTheme, oldTheme) => {
+         if (newTheme === 'dark') {
+            document.documentElement.classList.add('dark')
+         } else {
+            document.documentElement.classList.remove('dark')
+         }
+         localStorage.setItem('THREADS_CLONE_THEME', newTheme)
+      })
+
+      if (theme.value === 'dark') {
+         document.documentElement.classList.add('dark')
+      } else {
+         document.documentElement.classList.remove('dark')
+      }
 
       watch(
-         () => route.query.theme,
-         (newTheme, oldTheme) => {
-            if (newTheme === 'dark') {
-               document.documentElement.classList.add('dark')
-            } else {
-               document.documentElement.classList.remove('dark')
-            }
-         },
-         { immediate: true }
+         () => localStorage.getItem('THREADS_CLONE_THEME'),
+         (newTheme) => {
+            theme.value = newTheme || ''
+         }
       )
    }
 })

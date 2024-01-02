@@ -1,11 +1,11 @@
 <template>
    <div
       ref="element"
-      class="absolute right-0 top-0 aspect-square h-full cursor-pointer sm:relative select-none"
+      class="absolute top-0 right-0 h-full cursor-pointer select-none aspect-square sm:relative"
    >
       <div
          @click="show = !show"
-         class="group grid place-items-center w-full h-full active:scale-90 duration-100 ease-linear"
+         class="grid w-full h-full duration-100 ease-linear group place-items-center active:scale-90"
       >
          <span>
             <svg
@@ -29,7 +29,7 @@
       >
          <ul class="w-full cursor-pointer">
             <li
-               @click="console.log('Switch appearance')"
+               @click="switchTheme"
                class="border-b px-4 py-[11px] font-medium"
             >
                Switch appearance
@@ -52,10 +52,7 @@
             >
                Report a problem
             </li>
-            <li
-               @click="console.log('Log out')"
-               class="px-4 py-[11px] font-medium"
-            >
+            <li @click="handleLogOut" class="px-4 py-[11px] font-medium">
                Log out
             </li>
          </ul>
@@ -64,6 +61,8 @@
 </template>
 
 <script lang="ts" setup>
+const userStore = useUserStore()
+
 const element = ref<HTMLElement | null>(null)
 const show = ref(false)
 
@@ -84,4 +83,19 @@ onMounted(() => {
 onUnmounted(() => {
    window.removeEventListener('click', isClickOutside)
 })
+
+const switchTheme = () => {
+   const currentTheme = localStorage.getItem('THREADS_CLONE_THEME')
+   if (currentTheme === 'dark') {
+      localStorage.removeItem('THREADS_CLONE_THEME')
+   } else {
+      localStorage.setItem('THREADS_CLONE_THEME', 'dark')
+   }
+   window.location.reload()
+}
+
+const handleLogOut = async () => {
+   userStore.logout()
+   await navigateTo({ path: '/login' })
+}
 </script>

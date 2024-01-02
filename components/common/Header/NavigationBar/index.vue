@@ -2,10 +2,10 @@
    <nav
       class="fixed-center-x z-40 bottom-0 top-auto h-[68px] w-full bg-white dark:bg-[#181818] sm:bottom-auto sm:top-0 sm:h-[74px] sm:max-w-[480px]"
    >
-      <ul class="grid h-full w-full grid-cols-5 gap-1">
-         <li class="h-full py-1 w-full">
+      <ul class="grid w-full h-full grid-cols-5 gap-1">
+         <li class="w-full h-full py-1">
             <nuxt-link
-               class="group relative grid h-full w-full place-items-center"
+               class="relative grid w-full h-full group place-items-center"
                to="/"
             >
                <span
@@ -36,9 +36,9 @@
                </Icon>
             </nuxt-link>
          </li>
-         <li class="h-full py-1 w-full">
+         <li class="w-full h-full py-1">
             <nuxt-link
-               class="group relative grid h-full w-full place-items-center"
+               class="relative grid w-full h-full group place-items-center"
                to="/search"
             >
                <span
@@ -68,10 +68,10 @@
                </Icon>
             </nuxt-link>
          </li>
-         <li class="h-full py-1 w-full">
+         <li class="w-full h-full py-1">
             <div
                @click="openCreateThread"
-               class="group cursor-pointer relative grid h-full w-full place-items-center"
+               class="relative grid w-full h-full cursor-pointer group place-items-center"
             >
                <span
                   class="absolute z-[-1] block h-[80%] w-[80%] rounded-lg duration-100 ease-linear group-hover:h-full group-hover:w-full group-hover:bg-gray-400 group-hover:bg-opacity-20 dark:group-hover:bg-gray-500 dark:group-hover:bg-opacity-20"
@@ -96,9 +96,9 @@
                </Icon>
             </div>
          </li>
-         <li class="h-full py-1 w-full">
+         <li class="w-full h-full py-1">
             <nuxt-link
-               class="group relative grid h-full w-full place-items-center"
+               class="relative grid w-full h-full group place-items-center"
                to="/activity"
             >
                <span
@@ -127,9 +127,9 @@
                </Icon>
             </nuxt-link>
          </li>
-         <li class="h-full py-1 w-full">
+         <li class="w-full h-full py-1">
             <nuxt-link
-               class="group relative grid h-full w-full place-items-center"
+               class="relative grid w-full h-full group place-items-center"
                to="/user/@vietqtran"
             >
                <span

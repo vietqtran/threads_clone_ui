@@ -8,7 +8,7 @@
             >
                <div class="my-5 aspect-square w-[60px] sm:hidden">
                   <img
-                     class="h-full w-full"
+                     class="w-full h-full"
                      src="/images/ThreadsBlack.svg"
                      alt="Logo"
                   />
@@ -19,7 +19,7 @@
                   </h1>
                </div>
                <form
-                  @submit.prevent="login"
+                  @submit.prevent="signup"
                   class="w-full max-w-[368px] text-black"
                >
                   <LoginPageLoginInput
@@ -47,6 +47,7 @@
                      placeholder="Password"
                   />
                   <LoginPageSubmitButton
+                     v-if="!loading"
                      title="Sign up"
                      :clickable="
                         email !== '' &&
@@ -55,25 +56,56 @@
                         username !== ''
                      "
                   />
+                  <LoginPageLoadingSpinner v-else />
                </form>
-               <Or />
+               <LoginPageOr />
                <LoginPageSwitchForm to="/login" title="Log In" />
             </div>
             <div
-               class="absolute top-0 z-0 hidden h-1/2 w-full bg-login bg-contain bg-top bg-no-repeat sm:block"
+               class="absolute top-0 z-0 hidden w-full bg-top bg-no-repeat bg-contain h-1/2 bg-login sm:block"
             ></div>
+
+            <div
+               @click="createdSucceedModal = false"
+               v-if="createdSucceedModal"
+               class="fixed top-0 bottom-0 left-0 right-0 z-50 grid w-full h-full px-3 place-items-center bg-black/60"
+            >
+               <div
+                  @click.stop
+                  class="max-w-[300px] dark:border-[1px] dark:border-white/5 w-full p-5 dark:bg-[#181818] bg-white rounded-lg"
+               >
+                  <div class="text-center">
+                     <p>
+                        Sign up success! Please
+                        <nuxt-link to="/login">Log in</nuxt-link>
+                     </p>
+                  </div>
+                  <div class="w-full pt-5">
+                     <nuxt-link
+                        to="/login"
+                        class="block w-full py-2 text-sm font-medium text-center text-white bg-black rounded-lg dark:bg-white dark:text-black"
+                        >Login now</nuxt-link
+                     >
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
    </NuxtLayout>
 </template>
 
 <script lang="ts" setup>
-import { LoginPageLoginInput } from '~/.nuxt/components'
+import type { SignUpResponse } from '~/types/auth.response.types'
+
+const config = useRuntimeConfig()
+const loading = ref(false)
 
 const email = ref('')
 const name = ref('')
 const username = ref('')
 const password = ref('')
+
+const createdSucceedModal = ref(false)
 
 const updateEmail = (value: string) => {
    email.value = value
@@ -91,8 +123,44 @@ const updateUsername = (value: string) => {
    username.value = value
 }
 
-const login = (event: Event) => {
+const signup = async (event: Event) => {
    event.preventDefault()
-   console.log(email.value, password.value)
+   loading.value = true
+
+   console.log(email.value, username.value, name.value, password.value)
+
+   const { data: res, error } = await useFetch<SignUpResponse>(
+      `${config.public.baseApiUrl}/api/Authentication/register`,
+      {
+         method: 'POST',
+         body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+            email: email.value,
+            name: name.value
+         }),
+         headers: {
+            'Content-Type': 'application/json'
+         }
+      }
+   )
+
+   if (error.value) {
+      console.error('An error occurred:', error.value)
+   } else if (res.value) {
+      if (res.value.succeed) {
+         createdSucceedModal.value = true
+         email.value = ''
+         username.value = ''
+         name.value = ''
+         password.value = ''
+      } else {
+         console.error('Error while create account')
+      }
+   } else {
+      console.error('Invalid response received')
+   }
+
+   loading.value = false
 }
 </script>

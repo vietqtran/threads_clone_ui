@@ -3,6 +3,7 @@ export interface AppUser {
    name: string
    userName: string
    avatar: string
+   token: string
 }
 
 export interface LoginCredentials {

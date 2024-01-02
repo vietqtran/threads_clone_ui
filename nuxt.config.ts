@@ -5,7 +5,8 @@ export default defineNuxtConfig({
       storesDirs: ['./store/**']
    },
    imports: {
-      dirs: ['./store']
+      dirs: ['./store'],
+      autoImport: true
    },
    devtools: { enabled: true },
    css: ['~/assets/css/main.css'],
@@ -15,5 +16,15 @@ export default defineNuxtConfig({
          autoprefixer: {}
       }
    },
-   plugins: ['./plugins/theme.ts']
+   plugins: [
+      {
+         src: './plugins/theme.ts',
+         mode: 'client'
+      }
+   ],
+   runtimeConfig: {
+      public: {
+         baseApiUrl: 'https://localhost:7276'
+      }
+   }
 })

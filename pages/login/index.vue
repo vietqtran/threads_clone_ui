@@ -8,7 +8,7 @@
             >
                <div class="my-5 aspect-square w-[60px] sm:hidden">
                   <img
-                     class="h-full w-full"
+                     class="w-full h-full"
                      src="/images/ThreadsBlack.svg"
                      alt="Logo"
                   />
@@ -33,18 +33,20 @@
                      placeholder="Password"
                   />
                   <LoginPageSubmitButton
+                     v-if="!loading"
                      title="Log in"
                      :clickable="email !== '' && password !== ''"
                   />
+                  <LoginPageLoadingSpinner v-else />
                </form>
                <div class="py-2 text-center text-gray-400">
                   <nuxt-link to="/">Forgot password?</nuxt-link>
                </div>
-               <Or />
+               <LoginPageOr />
                <LoginPageSwitchForm to="/signup" title="Sign Up" />
             </div>
             <div
-               class="absolute top-0 z-0 hidden h-1/2 w-full bg-login bg-contain bg-top bg-no-repeat sm:block"
+               class="absolute top-0 z-0 hidden w-full bg-top bg-no-repeat bg-contain h-1/2 bg-login sm:block"
             ></div>
          </div>
       </div>
@@ -52,6 +54,13 @@
 </template>
 
 <script lang="ts" setup>
+import type { AppUser } from '~/types/user.types'
+
+const userStore = useUserStore()
+
+const config = useRuntimeConfig()
+const loading = ref(false)
+
 const email = ref('')
 const password = ref('')
 
@@ -63,8 +72,33 @@ const updatePassword = (value: string) => {
    password.value = value
 }
 
-const login = (event: Event) => {
+const login = async (event: Event) => {
    event.preventDefault()
-   console.log(email.value, password.value)
+   loading.value = true
+
+   const { data: res, error } = await useFetch<AppUser>(
+      `${config.public.baseApiUrl}/api/Authentication/login`,
+      {
+         method: 'POST',
+         body: JSON.stringify({
+            email: email.value,
+            password: password.value
+         }),
+         headers: {
+            'Content-Type': 'application/json'
+         }
+      }
+   )
+
+   if (error.value) {
+      console.error('An error occurred:', error.value)
+   } else if (res.value) {
+      userStore.login(res.value)
+      await navigateTo({ path: '/' })
+   } else {
+      console.error('Invalid response received')
+   }
+
+   loading.value = false
 }
 </script>
