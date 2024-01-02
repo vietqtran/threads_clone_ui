@@ -13,7 +13,7 @@
          >
             <div
                @click="close"
-               class="absolute left-0 h-full w-fit cursor-pointer px-3 sm:hidden"
+               class="absolute left-0 h-full px-3 cursor-pointer w-fit sm:hidden"
             >
                Cancel
             </div>
@@ -26,10 +26,10 @@
          >
             <div class="h-full overflow-y-auto p-6 pb-4 sm:max-h-[601px]">
                <div class="h-auto">
-                  <div class="flex h-full w-full">
+                  <div class="flex w-full h-full">
                      <div class="flex min-w-[48px] max-w-[48px] flex-col">
                         <!-- Avatar  -->
-                        <div class="flex w-full justify-start pt-1">
+                        <div class="flex justify-start w-full pt-1">
                            <CommonAvatar :size="36" />
                         </div>
 
@@ -37,24 +37,24 @@
                            class="flex flex-1 justify-center pb-1 pr-3 pt-[10px]"
                         >
                            <div
-                              class="h-auto min-h-[32px] w-[2px] bg-gray-200 dark:bg-opacity-40"
+                              class="h-auto min-h-[32px] w-[2px] bg-black/20 dark:bg-white/30"
                            ></div>
                         </div>
                      </div>
                      <div class="w-full">
                         <!-- Username  -->
-                        <div class="cursor-text font-medium">
+                        <div class="font-medium cursor-text">
                            <span class="leading-0">vietqtran</span>
                         </div>
                         <!-- Content Input  -->
-                        <div class="min-h-0 w-full">
+                        <div class="w-full min-h-0">
                            <Textarea
                               @setContent="setContent"
                               :content="content"
                            />
                         </div>
 
-                        <div class="-ml-2 mt-1 flex items-center">
+                        <div class="flex items-center mt-1 -ml-2">
                            <Image />
                            <Poll />
                         </div>
@@ -80,7 +80,7 @@
             <div
                class="flex items-center justify-between bg-white p-6 dark:bg-[#181818]"
             >
-               <div class="cursor-pointer opacity-50">Anyone can reply</div>
+               <div class="opacity-50 cursor-pointer">Anyone can reply</div>
                <div>
                   <button
                      class="rounded-full bg-[#181818] px-4 py-[6px] font-semibold text-white dark:bg-white dark:text-black"

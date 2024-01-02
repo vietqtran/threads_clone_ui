@@ -1,8 +1,8 @@
 <template>
    <div ref="element" class="relative select-none">
-      <div @click="show = !show" class="group cursor-pointer">
+      <div @click="show = !show" class="cursor-pointer group">
          <div
-            class="ab-center absolute h-0 w-0 rounded-full bg-gray-100 opacity-0 duration-100 ease-out group-hover:h-[36px] group-hover:w-[36px] group-hover:opacity-100 group-active:scale-90 dark:bg-gray-800"
+            class="ab-center absolute h-0 w-0 rounded-full bg-black/5 opacity-0 duration-100 ease-out group-hover:h-[36px] group-hover:w-[36px] group-hover:opacity-100 group-active:scale-90 dark:bg-white/10"
          ></div>
          <svg
             aria-label="More"
@@ -21,7 +21,7 @@
       <div
          v-show="show"
          @click="(event) => event.preventDefault()"
-         class="dropdown-shadow more-dropdown absolute right-[-6px] top-[30px] z-40 w-[190px] overflow-hidden rounded-2xl border-[.1px] border-gray-100 bg-white duration-300 dark:border-gray-800 dark:bg-[#181818]"
+         class="dropdown-shadow more-dropdown absolute right-[-6px] top-[30px] z-40 w-[190px] overflow-hidden rounded-2xl border-[.1px] border-black/10 bg-white duration-300 dark:border-white/10 dark:bg-[#181818]"
       >
          <ul class="w-full cursor-pointer">
             <li

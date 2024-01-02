@@ -1,6 +1,6 @@
 <template>
    <span
-      class="grid h-full w-full place-items-center stroke-gray-400 dark:stroke-gray-500"
+      class="grid w-full h-full place-items-center stroke-black/30 dark:stroke-white/20"
    >
       <slot />
    </span>

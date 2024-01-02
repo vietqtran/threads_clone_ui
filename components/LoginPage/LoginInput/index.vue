@@ -4,7 +4,7 @@
          autocomplete="true"
          :value="props.value"
          @input="onInput"
-         class="d-login w-full rounded-lg bg-login-input-l p-4 text-15 outline-none outline-offset-0 focus:outline focus:outline-[1px] focus:outline-gray-300 dark:bg-login-input-d dark:focus:outline-gray-600"
+         class="d-login w-full rounded-lg bg-login-input-l p-4 text-15 outline-none outline-offset-0 focus:outline focus:outline-[1px] focus:outline-black/30 dark:bg-login-input-d dark:focus:outline-white/30"
          :type="props.type"
          :placeholder="props.placeholder"
       />

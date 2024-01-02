@@ -1,16 +1,16 @@
 <template>
-   <div class="h-auto border-b py-3">
-      <div class="flex h-full w-full">
+   <div class="h-auto py-3 border-b">
+      <div class="flex w-full h-full">
          <div class="flex min-w-[48px] max-w-[48px] flex-col">
             <!-- Avatar  -->
-            <div class="flex w-full justify-start pt-1">
+            <div class="flex justify-start w-full pt-1">
                <CommonAvatarWithFollowButton :size="36" />
             </div>
 
             <!-- Line  -->
             <div class="flex flex-1 justify-center pb-1 pr-3 pt-[10px]">
                <div
-                  class="h-full min-h-[100px] w-[2px] bg-gray-200 dark:bg-gray-700"
+                  class="h-full min-h-[100px] w-[2px] bg-black/10 dark:bg-white/20"
                ></div>
             </div>
          </div>
@@ -26,7 +26,9 @@
                <!-- Time & More  -->
                <div class="flex items-center gap-4">
                   <div>
-                     <span class="text-sm text-gray-500">35m</span>
+                     <span class="text-sm text-black/50 dark:text-white/40"
+                        >35m</span
+                     >
                   </div>
                   <More />
                </div>
@@ -34,7 +36,7 @@
             <div class="w-full">
                <!-- Content  -->
                <div>
-                  <p class="text-15 leading-5">
+                  <p class="leading-5 text-15">
                      Lorem Ipsum is simply dummy text of the printing and
                      typesetting industry. Lorem Ipsum has been the industry's
                      standard dummy text ever since the 1500s, when an unknown
@@ -116,8 +118,8 @@
                </div>
 
                <!-- With > 2 images -->
-               <!-- <div class="my-2 grid w-full grid-cols-2">
-                  <div class="h-full cursor-pointer pr-2">
+               <!-- <div class="grid w-full grid-cols-2 my-2">
+                  <div class="h-full pr-2 cursor-pointer">
                      <img
                         draggable="false"
                         class="h-full max-h-[350px] select-none rounded-lg object-cover"
@@ -125,7 +127,7 @@
                         alt=""
                      />
                   </div>
-                  <div class="h-full cursor-pointer pr-2">
+                  <div class="h-full pr-2 cursor-pointer">
                      <img
                         draggable="false"
                         class="h-full max-h-[350px] select-none rounded-lg object-cover"
@@ -161,7 +163,7 @@
          <!-- With 2 users  -->
          <!-- <div class="relative h-[35px] w-[48px] pr-2 text-15">
             <div
-               class="ab-center-x left-0 rounded-full border-2 border-white dark:border-black"
+               class="left-0 border-2 border-white rounded-full ab-center-x dark:border-black"
             >
                <Avatar :size="16" />
             </div>
@@ -174,7 +176,7 @@
 
          <!-- With 3 users  -->
          <div class="relative h-[35px] w-[48px] pr-2 text-15">
-            <div class="absolute right-3 top-0 w-fit rounded-full">
+            <div class="absolute top-0 rounded-full right-3 w-fit">
                <CommonAvatar :size="20" />
             </div>
             <div class="absolute left-0 right-[15px] top-3 w-fit rounded-full">
@@ -186,7 +188,7 @@
                <CommonAvatar :size="12" />
             </div>
          </div>
-         <div class="text-gray-400">
+         <div class="text-black/50 dark:text-white/50">
             <nuxt-link to="/">66 replies</nuxt-link>
             <span>&nbsp;·&nbsp;</span>
             <button class="hover:underline">View activity</button>

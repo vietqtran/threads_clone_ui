@@ -1,11 +1,11 @@
 <template>
    <NuxtLayout>
       <Head>
-         <title>{{ title }}</title>
+         <title>{{ pageTitle }}</title>
       </Head>
       <div class="container mx-auto text-15 max-w-[620px] px-6">
          <div class="flex flex-col gap-6 py-4">
-            <div class="w-full flex items-center justify-between">
+            <div class="flex items-center justify-between w-full">
                <div>
                   <div>
                      <h1 class="text-2xl font-bold tracking-wide">vietqtran</h1>
@@ -21,9 +21,9 @@
                <span>102 followers</span>
             </div>
          </div>
-         <div class="py-3 grid grid-cols-2 gap-3 font-medium">
+         <div class="grid grid-cols-2 gap-3 py-3 font-medium">
             <button
-               class="active:scale-90 duration-100 ease-linear w-full py-[6px] bg-black text-white rounded-lg border-[1px] border-black"
+               class="active:scale-90 duration-100 ease-linear dark:border-[1px] dark:border-white/20 w-full py-[6px] bg-black text-white rounded-lg border-[1px] border-black"
             >
                Follow
             </button>
@@ -40,10 +40,6 @@
 </template>
 
 <script lang="ts" setup>
-const title = ref('')
-
 const route = useRoute()
-onBeforeMount(() => {
-   title.value = `Trần Quốc Việt (${route.params.username}) on Threads`
-})
+const pageTitle = ref(`Trần Quốc Việt (${route.params.username}) on Threads`)
 </script>

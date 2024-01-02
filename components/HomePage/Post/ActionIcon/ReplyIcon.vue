@@ -1,8 +1,8 @@
 <template>
-   <div class="cursor-pointer relative group">
+   <div class="relative cursor-pointer group">
       <div class="ab-center w-[36px] h-[36px] rounded-full"></div>
       <div
-         class="ab-center group-hover:w-[36px] w-0 group-hover:h-[36px] h-0 duration-150 ease-out rounded-full dark:bg-gray-700 dark:bg-opacity-60 bg-gray-100"
+         class="ab-center group-hover:w-[36px] w-0 group-hover:h-[36px] h-0 duration-150 ease-out rounded-full dark:bg-white/10 dark:bg-opacity-60 bg-black/5"
       ></div>
       <svg
          aria-label="Reply"

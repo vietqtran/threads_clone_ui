@@ -1,8 +1,8 @@
 <template>
    <NuxtLayout name="auth">
-      <div>
+      <div class="h-full">
          <NuxtLoadingIndicator />
-         <div class="relative grid h-[100vh] max-w-[100vw] place-items-center">
+         <div class="relative grid w-full h-full place-items-center">
             <div
                class="z-10 grid w-full max-w-[416px] place-items-center px-4 sm:mt-40"
             >
@@ -61,10 +61,6 @@
                <LoginPageOr />
                <LoginPageSwitchForm to="/login" title="Log In" />
             </div>
-            <div
-               class="absolute top-0 z-0 hidden w-full bg-top bg-no-repeat bg-contain h-1/2 bg-login sm:block"
-            ></div>
-
             <div
                @click="createdSucceedModal = false"
                v-if="createdSucceedModal"

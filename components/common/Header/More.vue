@@ -12,7 +12,7 @@
                aria-label="More"
                role="img"
                viewBox="0 0 24 24"
-               class="relative block h-[24px] w-[24px] fill-gray-400 duration-100 ease-linear group-hover:fill-black dark:fill-gray-500 dark:group-hover:fill-white"
+               class="relative block h-[24px] w-[24px] fill-black/50 duration-100 ease-linear group-hover:fill-black dark:fill-white/50 dark:group-hover:fill-white"
                style="--fill: currentColor; --height: 24px; --width: 24px"
             >
                <title>More</title>
@@ -25,7 +25,7 @@
       <div
          v-show="show"
          @click="(event) => event.preventDefault()"
-         class="dropdown-shadow more-dropdown absolute right-[16px] top-[60px] z-40 w-[190px] overflow-hidden rounded-2xl border-[.1px] border-gray-100 bg-white duration-300 dark:border-gray-800 dark:bg-[#181818]"
+         class="dropdown-shadow more-dropdown absolute right-[16px] top-[60px] z-40 w-[190px] overflow-hidden rounded-2xl border-[.1px] border-black/10 bg-white duration-300 dark:border-white/10 dark:bg-[#181818]"
       >
          <ul class="w-full cursor-pointer">
             <li

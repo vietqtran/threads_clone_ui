@@ -1,14 +1,17 @@
 <template>
-   <div class="hidden items-center justify-between border-b py-4 sm:flex">
+   <div class="items-center justify-between hidden py-4 border-b sm:flex">
       <div>
          <CommonAvatar :size="36" />
       </div>
-      <div @click="open" class="mx-2 flex-1 cursor-text pl-1 text-gray-400">
-         <span class="font-light">Start a thread...</span>
+      <div
+         @click="open"
+         class="flex-1 pl-1 mx-2 dark:text-white/30 text-black/40 cursor-text"
+      >
+         <span>Start a thread...</span>
       </div>
       <div>
          <button
-            class="cursor-not-allowed rounded-full bg-gray-400 bg-opacity-60 px-4 py-2 font-bold text-gray-50 dark:text-gray-800"
+            class="px-4 py-2 font-bold text-white rounded-full cursor-not-allowed bg-black/20 bg-opacity-60 dark:bg-white/40 dark:text-black"
          >
             Post
          </button>

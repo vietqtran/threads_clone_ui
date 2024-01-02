@@ -1,7 +1,7 @@
 <template>
    <div
       @click="isFocus = true"
-      class="sm:py-3 p-2 absolute top-0 left-0 right-0 w-full duration-100 ease-linear rounded-2xl bg-[#fafafa] dark:bg-[#181818] flex items-center sm:px-4 border-[1px] border-gray-300 dark:border-opacity-30"
+      class="absolute left-0 right-0 top-0 flex w-full items-center rounded-2xl border-[1px] border-black/20 bg-[#fafafa] p-2 duration-100 ease-linear sm:px-4 sm:py-3 dark:border-white/30 dark:bg-[#181818]"
       :class="{ 'shadow-dark dark:shadow-light': isFocus }"
    >
       <Search />
@@ -13,7 +13,7 @@
             :value="props.value"
             type="text"
             placeholder="Search"
-            class="outline-none placeholder:font-light font-normal bg-transparent w-full sm:h-[34px]"
+            class="w-full bg-transparent font-normal outline-none placeholder:font-light sm:h-[34px]"
          />
       </div>
       <Close @click="clearInput" :value="props.value" />

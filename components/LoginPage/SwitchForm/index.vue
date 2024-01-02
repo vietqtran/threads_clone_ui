@@ -1,13 +1,13 @@
 <template>
    <nuxt-link
       :to="props.to"
-      class="flex w-full items-center justify-between rounded-xl border-[1px] border-gray-300 py-5 pl-5 pr-3"
+      class="flex w-full items-center justify-between rounded-xl border-[1px] border-black/20 dark:border-white/30 py-5 pl-5 pr-3"
    >
       <div class="flex items-center">
          <div class="aspect-square w-[45px] rounded-lg bg-[#181818]">
-            <img class="h-full w-full" src="/icons/Threads.svg" alt="" />
+            <img class="w-full h-full" src="/icons/Threads.svg" alt="" />
          </div>
-         <div class="grid flex-1 place-items-center pl-5">
+         <div class="grid flex-1 pl-5 place-items-center">
             <h2 class="font-bold dark:text-white">{{ props.title }}</h2>
          </div>
       </div>
@@ -17,7 +17,7 @@
                aria-label="Log in"
                role="img"
                viewBox="0 0 24 24"
-               class="relative block h-[16px] w-[16px] rotate-180 fill-none stroke-current stroke-2 text-gray-600 dark:text-white"
+               class="relative block h-[16px] w-[16px] rotate-180 fill-none stroke-current stroke-2 text-black/40 dark:text-white/20"
                style="--fill: currentColor; --height: 16px; --width: 16px"
                strokeLinejoin="round"
                strokeLinecap="round"
